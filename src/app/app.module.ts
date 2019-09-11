@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MaterialModule} from './material-module';
+import {CategoriaComponentsModule} from './components/categoria-components/categoria-components.module';
+import {HttpClientModule} from '@angular/common/http';
+import {EventoComponentsModule} from './components/evento-components/evento-components.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import {MaterialModule} from './material-module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    CategoriaComponentsModule,
+    HttpClientModule,
+    EventoComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

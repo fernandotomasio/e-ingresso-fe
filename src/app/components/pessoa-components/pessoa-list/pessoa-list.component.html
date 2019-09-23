@@ -1,0 +1,17 @@
+<h1>Lista de pessoas</h1>
+
+<table>
+  <thead>
+  <th>CPF</th>
+  <th>Nome Completo</th>
+  <th>SARAM</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pessoa of (dataList$ | async)?.data">
+    <td>{{pessoa.cpf}}</td>
+    <td>{{pessoa.nome}}</td>
+    <td>{{pessoa.saram}}</td>
+  </tr>
+  </tbody>
+</table>
+

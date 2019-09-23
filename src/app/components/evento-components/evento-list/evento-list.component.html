@@ -1,6 +1,6 @@
 <h1>Lista de Eventos</h1>
 <ul>
-  <li *ngFor="let item of dataList">
+  <li *ngFor="let item of (dataList$ | async)?.data ">
     {{item.nome}},
     {{item.descricao}}
   </li>

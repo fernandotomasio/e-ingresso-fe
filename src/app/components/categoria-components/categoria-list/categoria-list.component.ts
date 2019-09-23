@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CategoriaService} from '../../../core/categoria.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'ein-categoria-list',
@@ -10,14 +11,13 @@ export class CategoriaListComponent implements OnInit {
 
   titulo = 'Lista de Categorias';
 
-  dataList = [];
+  dataList$: Observable<any>;
 
   constructor(private service: CategoriaService) { }
 
   ngOnInit() {
-    this.service.findAll().subscribe(response => {
-      this.dataList = response.data;
-    });
+    this.dataList$ = this.service.findAll();
+   ;
   }
 
 }

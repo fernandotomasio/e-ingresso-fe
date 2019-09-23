@@ -9,6 +9,7 @@ import {CategoriaComponentsModule} from './components/categoria-components/categ
 import {HttpClientModule} from '@angular/common/http';
 import {EventoComponentsModule} from './components/evento-components/evento-components.module';
 import {PessoaComponentsModule} from './components/pessoa-components/pessoa-components.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {PessoaComponentsModule} from './components/pessoa-components/pessoa-comp
     CategoriaComponentsModule,
     HttpClientModule,
     EventoComponentsModule,
-    PessoaComponentsModule
+    PessoaComponentsModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

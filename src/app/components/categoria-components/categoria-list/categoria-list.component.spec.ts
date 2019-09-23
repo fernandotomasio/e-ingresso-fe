@@ -18,7 +18,7 @@ describe('CategoriaListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CategoriaListComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    //.detectChanges();
   });
 
   it('should create', () => {

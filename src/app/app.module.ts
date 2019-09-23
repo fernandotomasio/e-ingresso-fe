@@ -8,6 +8,7 @@ import {MaterialModule} from './material-module';
 import {CategoriaComponentsModule} from './components/categoria-components/categoria-components.module';
 import {HttpClientModule} from '@angular/common/http';
 import {EventoComponentsModule} from './components/evento-components/evento-components.module';
+import {PessoaComponentsModule} from './components/pessoa-components/pessoa-components.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {EventoComponentsModule} from './components/evento-components/evento-comp
     MaterialModule,
     CategoriaComponentsModule,
     HttpClientModule,
-    EventoComponentsModule
+    EventoComponentsModule,
+    PessoaComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

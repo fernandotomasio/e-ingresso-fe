@@ -1,1 +1,23 @@
-<p>store-categorias-page works!</p>
+<div class="container">
+  <div class="categorias-store-list">
+
+    <mat-card class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">
+      <img [src]="'https://picsum.photos/300/200?' + item.oid">
+      <mat-card-content>
+        <mat-card-title>{{ item.titulo}}</mat-card-title>
+        <mat-card-subtitle> subtitulo </mat-card-subtitle>
+
+        <p>
+          {{ item.descricao }}
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <a mat-button [routerLink]="['/store', item.oid, 'eventos']">VEJA MAIS</a>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+</div>
+

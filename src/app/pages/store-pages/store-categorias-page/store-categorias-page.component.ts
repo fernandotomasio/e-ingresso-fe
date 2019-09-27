@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaService } from '../../../core/categoria.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ein-store-categorias-page',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreCategoriasPageComponent implements OnInit {
 
-  constructor() { }
+  dataList$: Observable<any>
+
+  constructor(private service: CategoriaService) { }
 
   ngOnInit() {
+    this.dataList$ = this.service.findAll();
   }
 
 }

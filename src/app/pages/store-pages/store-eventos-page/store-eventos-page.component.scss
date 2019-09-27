@@ -1,0 +1,31 @@
+
+.container {
+  padding: 20px
+}
+.eventos-store-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.eventos-store-card {
+  //padding: 0px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+
+.evento-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+}
+.evento-header section {
+  display: flex;
+  align-items: center;
+
+}
+mat-icon {
+  margin-right: 5px;
+
+}

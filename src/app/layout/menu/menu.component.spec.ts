@@ -8,6 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MenuComponent } from './menu.component';
+import { MaterialModule } from '../../material-module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -17,13 +19,7 @@ describe('MenuComponent', () => {
     TestBed.configureTestingModule({
       declarations: [MenuComponent],
       imports: [
-        NoopAnimationsModule,
-        LayoutModule,
-        MatButtonModule,
-        MatIconModule,
-        MatListModule,
-        MatSidenavModule,
-        MatToolbarModule,
+       MaterialModule, NoopAnimationsModule, RouterTestingModule
       ]
     }).compileComponents();
   }));

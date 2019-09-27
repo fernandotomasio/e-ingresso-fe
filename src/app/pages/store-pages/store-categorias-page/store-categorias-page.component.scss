@@ -1,0 +1,20 @@
+
+.container {
+  padding: 20px
+}
+.categorias-store-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.categorias-store-card {
+  //padding: 0px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.categorias-store-card img {
+  margin: -16px -16px 0 -16px;
+  border-radius: 5px 5px 0 0
+}

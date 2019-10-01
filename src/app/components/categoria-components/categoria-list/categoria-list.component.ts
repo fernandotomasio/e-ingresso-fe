@@ -17,7 +17,6 @@ export class CategoriaListComponent implements OnInit {
 
   ngOnInit() {
     this.dataList$ = this.service.findAll();
-   ;
   }
 
 }

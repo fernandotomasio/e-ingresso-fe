@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EventoService } from '../../../core/evento.service';
 
 @Component({
   selector: 'ein-store-eventos-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoreEventosDetailComponent implements OnInit {
 
-  constructor() { }
+  oid: number;
+
+  constructor(private service: EventoService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.oid = params.oid;
+    });
   }
+
 
 }

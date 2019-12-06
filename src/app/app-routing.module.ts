@@ -25,6 +25,10 @@ const routes: Routes = [
         path: 'eventos',
         loadChildren: './pages/evento-admin-pages/evento-admin-pages.module#EventoAdminPagesModule'
       },
+      {
+        path: 'favoritos',
+        loadChildren: './pages/favoritos-pages/favoritos-pages.module#FavoritosPagesModule'
+      }
 
     ]
   }

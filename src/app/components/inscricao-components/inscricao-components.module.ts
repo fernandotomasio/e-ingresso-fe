@@ -4,11 +4,12 @@ import { InscricaoFormComponent } from './inscricao-form/inscricao-form.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material-module';
 import { InscricaoListComponent } from './inscricao-list/inscricao-list.component';
+import { InscricaoSearchComponent } from './inscricao-search/inscricao-search.component';
 
 
 
 @NgModule({
-  declarations: [InscricaoFormComponent, InscricaoListComponent],
+  declarations: [InscricaoFormComponent, InscricaoListComponent, InscricaoSearchComponent],
   imports: [
     CommonModule, ReactiveFormsModule, MaterialModule
   ],

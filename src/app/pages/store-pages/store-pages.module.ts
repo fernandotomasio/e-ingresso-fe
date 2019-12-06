@@ -8,13 +8,14 @@ import { StoreEventosPageComponent } from './store-eventos-page/store-eventos-pa
 import { StoreEventosDetailComponent } from './store-eventos-detail/store-eventos-detail.component';
 import { StoreInscricaoEditComponent } from './store-inscricao-edit/store-inscricao-edit.component';
 import { InscricaoComponentsModule } from '../../components/inscricao-components/inscricao-components.module';
+import { IndicacaoComponentsModule } from '../../components/indicacao-components/indicacao-components.module';
 
 
 
 @NgModule({
   declarations: [StoreCategoriasPageComponent, StoreEventosPageComponent, StoreEventosDetailComponent, StoreInscricaoEditComponent],
   imports: [
-    CommonModule, MaterialModule, InscricaoComponentsModule,
+    CommonModule, MaterialModule, InscricaoComponentsModule, IndicacaoComponentsModule,
     RouterModule.forChild(StorePagesRoutes)
   ]
 })

@@ -16,7 +16,15 @@ const routes: Routes = [
       {
         path: 'store',
         loadChildren: './pages/store-pages/store-pages.module#StorePagesModule'
-      }
+      },
+      {
+        path: 'categorias',
+        loadChildren: './pages/categoria-admin-pages/categoria-admin-pages.module#CategoriaAdminPagesModule'
+      },
+      {
+        path: 'eventos',
+        loadChildren: './pages/evento-admin-pages/evento-admin-pages.module#EventoAdminPagesModule'
+      },
 
     ]
   }

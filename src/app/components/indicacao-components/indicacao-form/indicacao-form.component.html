@@ -1,0 +1,28 @@
+<form [formGroup]="form" class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Telefone" formControlName="telefone">
+  </mat-form-field>
+
+  <mat-form-field  class="example-full-width">
+      <textarea matInput formControlName="justificativa"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="10"
+                placeholder="Justificativa">
+      </textarea>
+  </mat-form-field>
+
+  <mat-form-field  class="example-full-width">
+      <textarea matInput formControlName="observacoes"
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="5"
+                cdkAutosizeMaxRows="10"
+                placeholder="Observaçoes">
+      </textarea>
+  </mat-form-field>
+  <button mat-button (click)="submit()">Enviar</button>
+</form>

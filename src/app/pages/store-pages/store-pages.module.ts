@@ -11,13 +11,14 @@ import { InscricaoComponentsModule } from '../../components/inscricao-components
 import { IndicacaoComponentsModule } from '../../components/indicacao-components/indicacao-components.module';
 import { ReservaVagaModule } from '../../components/reserva-vaga/reserva-vaga.module';
 import { EventoComponentsModule } from '../../components/evento-components/evento-components.module';
+import { StoreIndicacaoEditComponent } from './store-indicacao-edit/store-indicacao-edit.component';
 
 
 
 @NgModule({
-  declarations: [StoreCategoriasPageComponent, StoreEventosPageComponent, StoreEventosDetailComponent, StoreInscricaoEditComponent],
+  declarations: [StoreCategoriasPageComponent, StoreEventosPageComponent, StoreEventosDetailComponent, StoreInscricaoEditComponent, StoreIndicacaoEditComponent],
   imports: [
-    CommonModule, MaterialModule, InscricaoComponentsModule, EventoComponentsModule,
+    CommonModule, MaterialModule, InscricaoComponentsModule, EventoComponentsModule, IndicacaoComponentsModule,
     RouterModule.forChild(StorePagesRoutes)
   ]
 })

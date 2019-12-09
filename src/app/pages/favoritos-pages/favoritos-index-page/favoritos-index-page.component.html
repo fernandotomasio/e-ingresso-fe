@@ -1,1 +1,37 @@
-<p>favoritos-index-page works!</p>
+<div class="container">
+  <div class="eventos-store-list">
+
+    <mat-card class="eventos-store-card">
+      <div class="evento-header">
+
+        <section class="evento-calendar">
+          <mat-icon>calendar_today</mat-icon>
+          <span>Data do Evento: <b>10 de outrubro a 15 de novembro de 2019</b></span>
+        </section>
+
+        <section class="evento-actions">
+          <a mat-icon-button href="#">
+            <mat-icon>star_border yellow</mat-icon>
+          </a>
+        </section>
+
+      </div>
+
+      <mat-card-content>
+        <mat-card-title>APH001 - BÁSICO DE TELECOMUNICAÇÕES</mat-card-title>
+
+        <p>
+          lorem ipsum
+        </p>
+        <span class="label label-primary">INSCRIÇÕES ABERTAS</span>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <a mat-button [routerLink]="['/store', 'eventos', 2001]">VER DETALHES</a>
+        <a mat-button [routerLink]="['/store', 'inscricao']">INSCREVA-SE</a>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+</div>

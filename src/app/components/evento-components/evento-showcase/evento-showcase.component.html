@@ -1,0 +1,84 @@
+<h1>{{ (data$| async)?.sigla }} - {{ (data$| async)?.nome }} </h1>
+
+<p>
+  {{ (data$| async)?.descricao }}
+</p>
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Datas
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <p>
+      <b>DATA DE INÍCIO: </b>
+      {{ (data$| async)?.dataInicio | date:'MM/dd/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE TÉRMINO: </b>
+      {{ (data$| async)?.dataTermino | date:'MM/dd/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE INÍCIO DAS INDICAÇÕES: </b>
+      {{ (data$| async)?.dataInicioIndicacao | date:'MM/dd/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE TÉRMINO DAS INDICAÇÕES: </b>
+      {{ (data$| async)?.dataTerminoIndicacao | date:'MM/dd/yyyy' }}
+    </p>
+
+
+
+
+
+
+  </mat-expansion-panel>
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Mais detalhes sobre o Evento
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <p>
+      <b>Status: </b>
+      {{ (data$| async)?.statusEvento }}
+    </p>
+
+    <p>
+      <b>TICKET: </b>
+      {{ (data$| async)?.ticket }}
+    </p>
+
+    <p>
+      <b>OBSERVAÇÕES: </b>
+      {{ (data$| async)?.observacoes }}
+    </p>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Previsão de distribuição de vagas
+      </mat-panel-title>
+      <mat-panel-description>
+
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <ein-reserva-vaga-list></ein-reserva-vaga-list>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br>
+
+<mat-tab-group>
+  <mat-tab label="Inscrições">
+    <ein-inscricao-list></ein-inscricao-list>
+  </mat-tab>
+  <mat-tab label="Indicações">
+    <ein-indicacao-list></ein-indicacao-list>
+  </mat-tab>
+</mat-tab-group>

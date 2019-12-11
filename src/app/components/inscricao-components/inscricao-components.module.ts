@@ -5,13 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material-module';
 import { InscricaoListComponent } from './inscricao-list/inscricao-list.component';
 import { InscricaoSearchComponent } from './inscricao-search/inscricao-search.component';
+import { PessoaComponentsModule } from '../pessoa-components/pessoa-components.module';
 
 
 
 @NgModule({
   declarations: [InscricaoFormComponent, InscricaoListComponent, InscricaoSearchComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, MaterialModule
+    CommonModule, ReactiveFormsModule, MaterialModule, PessoaComponentsModule
   ],
   exports: [
     InscricaoFormComponent, InscricaoListComponent

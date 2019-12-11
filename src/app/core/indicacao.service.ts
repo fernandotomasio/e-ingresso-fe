@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -9,8 +9,9 @@ import { map } from 'rxjs/operators';
 export class IndicacaoService {
   constructor(private http: HttpClient) { }
 
-  findAll(): Observable<any> {
-    return this.http.get(`http://localhost:8080/api/v1/indicacoes`);
+  findAll(data: any): Observable<any> {
+    const params = new HttpParams({ fromObject: data });
+    return this.http.get(`http://localhost:8080/api/v1/indicacoes`, { params });
   }
 
   save(data: any): Observable<any> {

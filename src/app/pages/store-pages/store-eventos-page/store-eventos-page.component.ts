@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./store-eventos-page.component.scss'],
 })
 export class StoreEventosPageComponent implements OnInit {
-  oid: number;
+  categoriaOid: number;
   dataList$: Observable<any>;
 
   constructor(private service: EventoService,
@@ -19,9 +19,19 @@ export class StoreEventosPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.oid = params.oid;
+      this.categoriaOid = params.oid;
     });
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({ categoriaOids: [ this.categoriaOid]});
+  }
+
+  onAction(event: any) {
+    console.log(event)
+    if (event.action === 'detail') {
+      this.router.navigate(['/store', 'eventos', event.oid]);
+    }
+    if (event.action === 'subscribe') {
+      this.router.navigate(['/store', event.oid, 'inscricao']);
+    }
   }
 
 }

@@ -14,7 +14,7 @@ export class EventoListComponent implements OnInit {
   constructor(private service: EventoService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({});
   }
 
 }

@@ -12,4 +12,8 @@ export class PessoaService {
   findAll(): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/api/v1/pessoas?paginate=true&page=0&size=10`);
   }
+
+  find(oid: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/v1/pessoas/${oid}`);
+  }
 }

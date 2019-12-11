@@ -1,0 +1,34 @@
+<div class="eventos-store-list">
+
+  <mat-card class="eventos-store-card" *ngFor="let item of (dataList$ | async)?.data">
+    <div class="evento-header">
+
+      <section class="evento-calendar">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Data do Evento: <b>{{ item.dataInicio | date:'dd MMMM yyyy' }} a {{ item.dataTermino | date:'dd MMMM yyyy' }}</b></span>
+      </section>
+
+      <section class="evento-actions">
+        <a mat-icon-button href="#">
+          <mat-icon>star_border</mat-icon>
+        </a>
+      </section>
+
+    </div>
+
+    <mat-card-content>
+      <mat-card-title>{{ item.sigla}} - {{ item.nome}}</mat-card-title>
+
+      <p>
+        {{ item.descricao }}
+      </p>
+      <span class="label label-primary">{{ item.statusEvento }}</span>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a mat-button (click)="raiseAction('detail', item.oid)">VER DETALHES</a>
+      <a mat-button (click)="raiseAction('subscribe', item.oid)">INSCREVA-SE</a>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

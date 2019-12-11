@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InscricaoService } from '../../../core/inscricao.service';
 
@@ -12,14 +12,15 @@ export class InscricaoFormComponent implements OnInit {
   form: FormGroup;
   @Output() saved = new EventEmitter<any>()
   @Output() canceled = new EventEmitter();
+  @Input() eventoOid: any
 
   constructor(private service: InscricaoService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      pessoaOid: 3077,
-      eventoOid: 2001,
+      pessoaOid: this.fb.control('', Validators.required),
+      eventoOid: this.eventoOid,
       email: this.fb.control('', [Validators.required, Validators.maxLength(255), Validators.email]),
       telefone: this.fb.control('', [Validators.required, Validators.maxLength(255)]),
       justificativa: this.fb.control(''),

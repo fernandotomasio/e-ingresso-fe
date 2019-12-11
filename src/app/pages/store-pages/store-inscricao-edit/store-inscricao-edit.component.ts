@@ -8,13 +8,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class StoreInscricaoEditComponent implements OnInit {
 
+  eventoOid: number;
+
   constructor(private route: ActivatedRoute,
               private router: Router) { }
-
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.eventoOid = params.oid;
+    });
   }
   onSave(event: any) {
-    console.log('roteando' + event.evento.oid)
-    this.router.navigate(['/store', event.evento.oid, 'eventos']);
+    this.router.navigate(['/store',  'eventos', event.evento.oid]);
   }
 }

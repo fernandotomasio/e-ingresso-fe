@@ -8,15 +8,17 @@ import { EventoShowcaseComponent } from './evento-showcase/evento-showcase.compo
 import { InscricaoComponentsModule } from '../inscricao-components/inscricao-components.module';
 import { IndicacaoComponentsModule } from '../indicacao-components/indicacao-components.module';
 import { ReservaVagaModule } from '../reserva-vaga/reserva-vaga.module';
+import { EventoShowcaseListComponent } from './evento-showcase-list/evento-showcase-list.component';
 
 
 
 @NgModule({
-  declarations: [EventoListComponent, EventoFormComponent, EventoSearchComponent, EventoShowcaseComponent],
+  declarations: [EventoListComponent, EventoFormComponent, EventoSearchComponent, EventoShowcaseComponent, EventoShowcaseListComponent],
   exports: [
     EventoListComponent,
     EventoFormComponent,
-    EventoShowcaseComponent
+    EventoShowcaseComponent,
+    EventoShowcaseListComponent,
   ],
   imports: [
     CommonModule, InscricaoComponentsModule, IndicacaoComponentsModule, ReservaVagaModule,

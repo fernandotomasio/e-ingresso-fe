@@ -16,7 +16,7 @@ export class IndicacaoListComponent implements OnInit {
   constructor(private service: IndicacaoService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ] } );
   }
 
 }

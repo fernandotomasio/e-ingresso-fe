@@ -12,4 +12,7 @@ export class CategoriaService {
   findAll(): Observable<any> {
     return this.http.get(`http://localhost:8080/api/v1/categorias`);
   }
+  remove(oid: number): Observable<any> {
+    return null;
+  }
 }

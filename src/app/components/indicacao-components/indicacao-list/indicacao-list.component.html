@@ -5,7 +5,7 @@
     <mat-card-subtitle>{{ item.pessoa.email }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <a mat-button >Editar</a>
-    <a mat-button >Remover</a>
+    <a mat-button (click)="raiseAction('edit', item.oid)">EDITAR</a>
+    <ein-indicacao-remove [oid]="item.oid">REMOVER</ein-indicacao-remove>
   </mat-card-actions>
 </mat-card>

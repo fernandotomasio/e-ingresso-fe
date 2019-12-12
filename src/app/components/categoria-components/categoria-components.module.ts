@@ -13,7 +13,8 @@ import { CategoriaRemoveComponent, CategoriaRemoveDialogComponent } from './cate
     CategoriaRemoveComponent, CategoriaRemoveDialogComponent],
   exports: [
     CategoriaListComponent,
-    CategoriaFormComponent
+    CategoriaFormComponent,
+    CategoriaRemoveComponent
   ],
   imports: [
     CommonModule,

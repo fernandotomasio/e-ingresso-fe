@@ -4,14 +4,15 @@ import { EventoIndexPageComponent } from './evento-index-page/evento-index-page.
 import { RouterModule } from '@angular/router';
 import { EventoAdminPagesRoutes } from './evento-admin-pages-routing';
 import { EventoEditPageComponent } from './evento-edit-page/evento-edit-page.component';
-import { EventoDetailComponent } from './evento-detail/evento-detail.component';
+import { EventoDetailPageComponent } from './evento-detail-page/evento-detail-page.component';
+import { EventoComponentsModule } from '../../components/evento-components/evento-components.module';
 
 
 
 @NgModule({
-  declarations: [EventoIndexPageComponent, EventoEditPageComponent, EventoDetailComponent],
+  declarations: [EventoIndexPageComponent, EventoEditPageComponent, EventoDetailPageComponent],
   imports: [
-    CommonModule,
+    CommonModule, EventoComponentsModule,
     RouterModule.forChild(EventoAdminPagesRoutes)
   ]
 })

@@ -1,26 +1,26 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { CategoriaService } from '../../../core/categoria.service';
+import { IndicacaoService } from '../../../core/indicacao.service';
 import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'ein-categoria-remove',
-  templateUrl: './categoria-remove.component.html',
-  styleUrls: ['./categoria-remove.component.scss']
+  selector: 'ein-indicacao-remove',
+  templateUrl: './indicacao-remove.component.html',
+  styleUrls: ['./indicacao-remove.component.scss']
 })
-export class CategoriaRemoveComponent implements OnInit {
+export class IndicacaoRemoveComponent implements OnInit {
   @Input() oid: number;
   @Output() deleted = new EventEmitter();
 
   mensagem: string;
 
-  constructor(private service: CategoriaService, public dialog: MatDialog) {}
+  constructor(private service: IndicacaoService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
 
   }
   @HostListener('click', [ '$event.target' ])
   remove() {
-    const dialogRef = this.dialog.open(CategoriaRemoveDialogComponent);
+    const dialogRef = this.dialog.open(IndicacaoRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -41,7 +41,7 @@ export class CategoriaRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-categoria-remove-dialog',
-  templateUrl: 'categoria-remove-dialog.html',
+  selector: 'ein-indicacao-remove-dialog',
+  templateUrl: 'indicacao-remove-dialog.html',
 })
-export class CategoriaRemoveDialogComponent {}
+export class IndicacaoRemoveDialogComponent {}

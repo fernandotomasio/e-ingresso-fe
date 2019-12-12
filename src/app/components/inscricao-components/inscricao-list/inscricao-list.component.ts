@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InscricaoService } from '../../../core/inscricao.service';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./inscricao-list.component.scss']
 })
 export class InscricaoListComponent implements OnInit {
-
+  @Output() action = new EventEmitter<any>();
   @Input() eventoOid: number;
   dataList$: Observable<any>;
 
@@ -18,4 +18,10 @@ export class InscricaoListComponent implements OnInit {
     this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ] } );
   }
 
+  raiseAction(action: string, oid: number) {
+    this.action.emit({
+      action,
+      oid
+    });
+  }
 }

@@ -9,6 +9,10 @@ import { map } from 'rxjs/operators';
 export class IndicacaoService {
   constructor(private http: HttpClient) { }
 
+  remove(oid: number): Observable<any> {
+    return null;
+  }
+
   findAll(data: any): Observable<any> {
     const params = new HttpParams({ fromObject: data });
     return this.http.get(`http://localhost:8080/api/v1/indicacoes`, { params });

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EventoService } from '../../../core/evento.service';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./evento-showcase.component.scss']
 })
 export class EventoShowcaseComponent implements OnInit {
-
+  @Output() action = new EventEmitter<any>();
   @Input() oid: number
 
   data$: Observable<any>;
@@ -17,6 +17,12 @@ export class EventoShowcaseComponent implements OnInit {
 
   ngOnInit() {
     this.data$ = this.service.find(this.oid);
+  }
+  onInscricaoAction(event: any) {
+    this.action.emit({ ...event,  action: 'editInscricao'});
+  }
+  onIndicacaoAction(event: any) {
+    this.action.emit({ ...event,  action: 'editIndicacao'});
   }
 
 }

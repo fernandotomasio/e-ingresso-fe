@@ -20,6 +20,15 @@ export class StoreEventosDetailComponent implements OnInit {
       this.oid = params.oid;
     });
   }
+  onAction(event: any) {
+
+    if (event.action === 'editInscricao') {
+      this.router.navigate(['/store', event.oid , 'inscricao']);
+    }
+    if (event.action === 'editIndicacao') {
+      this.router.navigate(['/store', event.oid , 'indicacao']);
+    }
+  }
 
 
 }

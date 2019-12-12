@@ -1,26 +1,26 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
-import { CategoriaService } from '../../../core/categoria.service';
+import { InscricaoService } from '../../../core/inscricao.service';
 import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'ein-categoria-remove',
-  templateUrl: './categoria-remove.component.html',
-  styleUrls: ['./categoria-remove.component.scss']
+  selector: 'ein-inscricao-remove',
+  templateUrl: './inscricao-remove.component.html',
+  styleUrls: ['./inscricao-remove.component.scss']
 })
-export class CategoriaRemoveComponent implements OnInit {
+export class InscricaoRemoveComponent implements OnInit {
   @Input() oid: number;
   @Output() deleted = new EventEmitter();
 
   mensagem: string;
 
-  constructor(private service: CategoriaService, public dialog: MatDialog) {}
+  constructor(private service: InscricaoService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
 
   }
   @HostListener('click', [ '$event.target' ])
   remove() {
-    const dialogRef = this.dialog.open(CategoriaRemoveDialogComponent);
+    const dialogRef = this.dialog.open(InscricaoRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -41,7 +41,7 @@ export class CategoriaRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-categoria-remove-dialog',
-  templateUrl: 'categoria-remove-dialog.html',
+  selector: 'ein-inscricao-remove-dialog',
+  templateUrl: 'inscricao-remove-dialog.html',
 })
-export class CategoriaRemoveDialogComponent {}
+export class InscricaoRemoveDialogComponent {}

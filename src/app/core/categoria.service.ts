@@ -15,4 +15,8 @@ export class CategoriaService {
   remove(oid: number): Observable<any> {
     return null;
   }
+  find(oid: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/v1/categorias/${oid}`);
+  }
+
 }

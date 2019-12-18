@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EventoService } from '../../../core/evento.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ein-categoria-detail-page',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaDetailPageComponent implements OnInit {
 
-  constructor() { }
+  oid: number;
+
+  constructor(private service: EventoService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.oid = params.oid;
+    });
   }
-
 }

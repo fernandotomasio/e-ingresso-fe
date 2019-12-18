@@ -1,1 +1,12 @@
-<p>categoria-detail works!</p>
+<p>
+  <b>OID: </b>
+  {{ (data$| async)?.oid }}
+</p>
+<p>
+  <b>TÍTULO: </b>
+  {{ (data$| async)?.titulo }}
+</p>
+<p>
+  <b>DESCRIÇÃO: </b>
+  {{ (data$| async)?.descricao  }}
+</p>

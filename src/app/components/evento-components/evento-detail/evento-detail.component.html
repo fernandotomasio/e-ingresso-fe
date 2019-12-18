@@ -1,1 +1,8 @@
-<p>evento-detail works!</p>
+<p>
+  <b>OID: </b>
+  {{ (data$| async)?.oid }}
+</p>
+<p>
+  <b>NOME: </b>
+  {{ (data$| async)?.nome }}
+</p>

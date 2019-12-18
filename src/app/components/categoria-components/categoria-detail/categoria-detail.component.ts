@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CategoriaService } from '../../../core/categoria.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ein-categoria-detail',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() oid: number;
+
+  data$: Observable<any>;
+
+  constructor(private service: CategoriaService) { }
 
   ngOnInit() {
+    this.data$ = this.service.find(this.oid);
   }
 
 }

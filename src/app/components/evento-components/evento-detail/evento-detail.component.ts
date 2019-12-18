@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EventoService } from '../../../core/evento.service';
 
 @Component({
   selector: 'ein-evento-detail',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() oid: number;
+
+  data$: Observable<any>;
+
+  constructor(private service: EventoService) { }
 
   ngOnInit() {
+    this.data$ = this.service.find(this.oid);
   }
-
 }

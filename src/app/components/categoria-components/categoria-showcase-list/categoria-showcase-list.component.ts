@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CategoriaService } from '../../../core/categoria.service';
 
 @Component({
   selector: 'ein-categoria-showcase-list',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categoria-showcase-list.component.scss']
 })
 export class CategoriaShowcaseListComponent implements OnInit {
+  @Output() action = new EventEmitter<any>();
+  titulo = 'Lista de Categorias';
 
-  constructor() { }
+  dataList$: Observable<any>;
+
+
+  constructor(private service: CategoriaService) { }
 
   ngOnInit() {
+    this.dataList$ = this.service.findAll();
+  }
+
+  raiseAction(action: string, oid: number) {
+    this.action.emit({
+      action,
+      oid
+    });
   }
 
 }

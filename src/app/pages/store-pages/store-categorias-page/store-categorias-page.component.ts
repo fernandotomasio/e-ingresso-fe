@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../../../core/categoria.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ein-store-categorias-page',
@@ -11,10 +12,18 @@ export class StoreCategoriasPageComponent implements OnInit {
 
   dataList$: Observable<any>
 
-  constructor(private service: CategoriaService) { }
+  constructor(private service: CategoriaService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.dataList$ = this.service.findAll();
   }
 
+  onAction(event: any) {
+    if (event.action === 'detail') {
+      this.router.navigate(['/store', event.oid, 'eventos']);
+    }
+
+  }
 }

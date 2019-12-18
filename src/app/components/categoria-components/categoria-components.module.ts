@@ -6,15 +6,18 @@ import {MaterialModule} from '../../material-module';
 import { CategoriaSearchComponent } from './categoria-search/categoria-search.component';
 import { CategoriaShowcaseListComponent } from './categoria-showcase-list/categoria-showcase-list.component';
 import { CategoriaRemoveComponent, CategoriaRemoveDialogComponent } from './categoria-remove/categoria-remove.component';
+import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 
 
 @NgModule({
   declarations: [CategoriaListComponent, CategoriaFormComponent, CategoriaSearchComponent, CategoriaShowcaseListComponent,
-    CategoriaRemoveComponent, CategoriaRemoveDialogComponent],
+    CategoriaRemoveComponent, CategoriaRemoveDialogComponent, CategoriaDetailComponent],
   exports: [
     CategoriaListComponent,
     CategoriaFormComponent,
-    CategoriaRemoveComponent
+    CategoriaRemoveComponent,
+    CategoriaShowcaseListComponent,
+    CategoriaDetailComponent
   ],
   imports: [
     CommonModule,

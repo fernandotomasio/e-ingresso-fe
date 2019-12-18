@@ -35,7 +35,7 @@
     <td mat-cell *matCellDef="let item">
       <a mat-button  (click)="raiseAction('detail', item.oid)">DETALHAR</a>
       <a mat-button  (click)="raiseAction('edit', item.oid)">EDITAR</a>
-      <ein-categoria-remove [oid]="item.oid">REMOVER</ein-categoria-remove>
+      <ein-categoria-remove [oid]="item.oid" (deleted)="refresh()">REMOVER</ein-categoria-remove>
     </td>
   </ng-container>
 

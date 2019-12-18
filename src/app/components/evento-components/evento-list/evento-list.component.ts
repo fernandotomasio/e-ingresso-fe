@@ -19,9 +19,12 @@ export class EventoListComponent implements OnInit {
   constructor(private service: EventoService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({});
+    this.refresh();
   }
 
+  refresh() {
+    this.dataList$ = this.service.findAll({});
+  }
   raiseAction(action: string, oid: number) {
     this.action.emit({
       action,

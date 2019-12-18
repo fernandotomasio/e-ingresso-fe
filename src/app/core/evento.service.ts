@@ -17,5 +17,7 @@ export class EventoService {
   find(oid: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/v1/eventos/${oid}`);
   }
-
+  remove(oid: number): Observable<any> {
+    return this.http.delete(`http://localhost:8080/api/v1/eventos/${oid}`);
+  }
 }

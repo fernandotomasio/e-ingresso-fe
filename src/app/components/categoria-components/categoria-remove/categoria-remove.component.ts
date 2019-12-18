@@ -23,7 +23,9 @@ export class CategoriaRemoveComponent implements OnInit {
     const dialogRef = this.dialog.open(CategoriaRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        this.confirm();
+      }
     });
   }
 

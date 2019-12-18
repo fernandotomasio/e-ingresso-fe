@@ -18,9 +18,12 @@ export class CategoriaListComponent implements OnInit {
   constructor(private service: CategoriaService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.refresh();
   }
 
+  refresh() {
+    this.dataList$ = this.service.findAll();
+  }
   raiseAction(action: string, oid: number) {
     this.action.emit({
       action,

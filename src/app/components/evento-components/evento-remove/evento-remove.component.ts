@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { CategoriaService } from '../../../core/categoria.service';
 import { MatDialog } from '@angular/material';
+import { EventoService } from '../../../core/evento.service';
 
 @Component({
   selector: 'ein-evento-remove',
@@ -14,7 +15,7 @@ export class EventoRemoveComponent implements OnInit {
 
   mensagem: string;
 
-  constructor(private service: CategoriaService, public dialog: MatDialog) {}
+  constructor(private service: EventoService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
 
@@ -24,7 +25,9 @@ export class EventoRemoveComponent implements OnInit {
     const dialogRef = this.dialog.open(EventoRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        this.confirm();
+      }
     });
   }
 

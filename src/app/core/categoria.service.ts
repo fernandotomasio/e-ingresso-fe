@@ -13,7 +13,7 @@ export class CategoriaService {
     return this.http.get(`http://localhost:8080/api/v1/categorias`);
   }
   remove(oid: number): Observable<any> {
-    return null;
+    return this.http.delete(`http://localhost:8080/api/v1/categorias/${oid}`);
   }
   find(oid: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/v1/categorias/${oid}`);

@@ -27,7 +27,7 @@ export class PessoaSelectComponent implements OnInit {
   }
 
   loadData() {
-    this.service.findAll().subscribe(response => {
+    this.service.findAll({}).subscribe(response => {
       this.dataList = response.data;
     });
   }

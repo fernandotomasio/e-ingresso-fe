@@ -17,7 +17,7 @@ export class StoreCategoriasPageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({});
   }
 
   onAction(event: any) {

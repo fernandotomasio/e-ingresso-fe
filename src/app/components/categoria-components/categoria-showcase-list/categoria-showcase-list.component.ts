@@ -17,7 +17,7 @@ export class CategoriaShowcaseListComponent implements OnInit {
   constructor(private service: CategoriaService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({});
   }
 
   raiseAction(action: string, oid: number) {

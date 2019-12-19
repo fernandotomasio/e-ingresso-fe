@@ -14,7 +14,7 @@ export class PessoaListComponent implements OnInit {
   constructor(private service: PessoaService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({});
   }
 
 }

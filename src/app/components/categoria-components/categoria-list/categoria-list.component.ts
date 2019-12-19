@@ -22,7 +22,7 @@ export class CategoriaListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll();
+    this.dataList$ = this.service.findAll({});
   }
   raiseAction(action: string, oid: number) {
     this.action.emit({

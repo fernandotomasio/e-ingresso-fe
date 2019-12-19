@@ -17,7 +17,7 @@ export class EventoListComponent implements OnInit {
 
   displayedColumns: string[] = ['oid', 'nome', 'controls'];
 
-  paginateOptions = []
+  paginateOptions = [];
 
   totalCount: number;
 
@@ -29,7 +29,7 @@ export class EventoListComponent implements OnInit {
     size: '10',
     page: '0',
     orderBy: []
-  }
+  };
 
   constructor(private service: EventoService) { }
 
@@ -40,12 +40,14 @@ export class EventoListComponent implements OnInit {
   refresh() {
     this.dataList$ = this.service.findAll({});
   }
+
   raiseAction(action: string, oid: number) {
     this.action.emit({
       action,
       oid
     });
   }
+
   onSearchChange(event) {
     console.log(event);
   }

@@ -1,4 +1,5 @@
 <div class="container">
+    <ein-categoria-search (changed)="onSearchChange($event)"></ein-categoria-search>
   <div class="categorias-store-list">
 
     <mat-card class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">
@@ -18,6 +19,9 @@
     </mat-card>
 
   </div>
+
+  <mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+                 [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
 
 </div>
 

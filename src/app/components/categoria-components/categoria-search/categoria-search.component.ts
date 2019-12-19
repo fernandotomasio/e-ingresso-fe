@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CategoriaService } from '../../../core/categoria.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ein-categoria-search',
@@ -6,10 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categoria-search.component.scss']
 })
 export class CategoriaSearchComponent implements OnInit {
+  @Output() changed = new EventEmitter();
+  form: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+              private service: CategoriaService) { }
 
   ngOnInit() {
+    this.createForm();
   }
+
+  createForm() {
+    this.form = this.fb.group({
+      q: this.fb.control(''),
+    });
+  }
+
+  raiseChanged(form: FormGroup) {
+    this.changed.emit(form.value);
+  }
+
+  submit() {
+    if (this.form.valid) {
+       this.raiseChanged(this.form);
+    }
+  }
+
 
 }

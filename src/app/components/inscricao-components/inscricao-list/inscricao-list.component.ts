@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { InscricaoService } from '../../../core/inscricao.service';
 import { Observable } from 'rxjs';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'ein-inscricao-list',
@@ -14,6 +15,22 @@ export class InscricaoListComponent implements OnInit {
 
   constructor(private service: InscricaoService) { }
 
+
+  paginateOptions = []
+
+  totalCount: number;
+
+  filteredCount: number;
+
+
+  dataSearch = {
+    paginate: 'true',
+    size: '10',
+    page: '0',
+    orderBy: []
+  }
+
+
   ngOnInit() {
     this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ] } );
   }
@@ -24,4 +41,12 @@ export class InscricaoListComponent implements OnInit {
       oid
     });
   }
+  onSearchChange(event) {
+    console.log(event);
+  }
+
+  onPageChange(event: PageEvent) {
+    console.log(event);
+  }
+
 }

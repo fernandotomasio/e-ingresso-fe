@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoriaService } from '../../../core/categoria.service';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'ein-categoria-showcase-list',
@@ -13,6 +14,19 @@ export class CategoriaShowcaseListComponent implements OnInit {
 
   dataList$: Observable<any>;
 
+  paginateOptions = []
+
+  totalCount: number;
+
+  filteredCount: number;
+
+
+  dataSearch = {
+    paginate: 'true',
+    size: '10',
+    page: '0',
+    orderBy: []
+  }
 
   constructor(private service: CategoriaService) { }
 
@@ -25,6 +39,12 @@ export class CategoriaShowcaseListComponent implements OnInit {
       action,
       oid
     });
+  }
+  onSearchChange(event) {
+    console.log(event);
+  }
+  onPageChange(event: PageEvent) {
+    console.log(event);
   }
 
 }

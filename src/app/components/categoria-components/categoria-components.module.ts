@@ -7,6 +7,7 @@ import { CategoriaSearchComponent } from './categoria-search/categoria-search.co
 import { CategoriaShowcaseListComponent } from './categoria-showcase-list/categoria-showcase-list.component';
 import { CategoriaRemoveComponent, CategoriaRemoveDialogComponent } from './categoria-remove/categoria-remove.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,11 +18,14 @@ import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.co
     CategoriaFormComponent,
     CategoriaRemoveComponent,
     CategoriaShowcaseListComponent,
-    CategoriaDetailComponent
+    CategoriaDetailComponent,
+    CategoriaSearchComponent,
+    CategoriaSearchComponent
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     CategoriaRemoveDialogComponent

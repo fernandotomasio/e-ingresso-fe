@@ -1,3 +1,4 @@
+<ein-indicacao-search (changed)="onSearchChange($event)"></ein-indicacao-search>
 <mat-card class="example-card"  *ngFor="let item of (dataList$ | async)?.data">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
@@ -9,3 +10,6 @@
     <ein-indicacao-remove [oid]="item.oid">REMOVER</ein-indicacao-remove>
   </mat-card-actions>
 </mat-card>
+
+<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+               [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

@@ -1,5 +1,5 @@
 <div class="eventos-store-list">
-
+  <ein-evento-search (changed)="onSearchChange($event)"></ein-evento-search>
   <mat-card class="eventos-store-card" *ngFor="let item of (dataList$ | async)?.data">
     <div class="evento-header">
 
@@ -32,3 +32,6 @@
   </mat-card>
 
 </div>
+
+<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+               [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

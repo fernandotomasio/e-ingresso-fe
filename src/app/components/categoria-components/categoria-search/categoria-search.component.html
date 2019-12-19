@@ -1,1 +1,6 @@
-<p>categoria-search works!</p>
+<form [formGroup]="form" class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Email" formControlName="q">
+  </mat-form-field>
+  <button mat-button (click)="submit()">Enviar</button>
+</form>

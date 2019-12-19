@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {EventoService} from '../../../core/evento.service';
 import {Observable} from 'rxjs';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'ein-evento-list',
@@ -16,6 +17,20 @@ export class EventoListComponent implements OnInit {
 
   displayedColumns: string[] = ['oid', 'nome', 'controls'];
 
+  paginateOptions = []
+
+  totalCount: number;
+
+  filteredCount: number;
+
+
+  dataSearch = {
+    paginate: 'true',
+    size: '10',
+    page: '0',
+    orderBy: []
+  }
+
   constructor(private service: EventoService) { }
 
   ngOnInit() {
@@ -30,6 +45,12 @@ export class EventoListComponent implements OnInit {
       action,
       oid
     });
+  }
+  onSearchChange(event) {
+    console.log(event);
+  }
+  onPageChange(event: PageEvent) {
+    console.log(event);
   }
 
 }

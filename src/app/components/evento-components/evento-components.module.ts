@@ -11,6 +11,7 @@ import { ReservaVagaModule } from '../reserva-vaga/reserva-vaga.module';
 import { EventoShowcaseListComponent } from './evento-showcase-list/evento-showcase-list.component';
 import { EventoRemoveComponent, EventoRemoveDialogComponent } from './evento-remove/evento-remove.component';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -26,7 +27,7 @@ import { EventoDetailComponent } from './evento-detail/evento-detail.component';
   ],
   imports: [
     CommonModule, InscricaoComponentsModule, IndicacaoComponentsModule, ReservaVagaModule,
-    MaterialModule
+    MaterialModule, ReactiveFormsModule
   ],
   entryComponents: [
     EventoRemoveDialogComponent

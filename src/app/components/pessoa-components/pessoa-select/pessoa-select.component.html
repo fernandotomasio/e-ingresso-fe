@@ -1,4 +1,4 @@
-formulário
+<ein-pessoa-search (changed)="onSearchChange($event)"></ein-pessoa-search>
 <form [formGroup]="form" (submit)="onSubmit()">
   <mat-radio-group formControlName="oid">
     <table mat-table [dataSource]="dataList" class="mat-elevation-z8">
@@ -27,7 +27,8 @@ formulário
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
   </mat-radio-group>
-
+  <mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+                 [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
   <button mat-button type="submit">Selecionar</button>
 </form>
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PessoaService } from '../../../core/pessoa.service';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'ein-pessoa-select',
@@ -13,9 +14,22 @@ export class PessoaSelectComponent implements OnInit {
   @Output() canceled = new EventEmitter();
 
   dataList: any;
-  form: FormGroup;
 
   displayedColumns: string[] = ['control', 'nome'];
+
+  paginateOptions = []
+
+  dataSearch = {
+    paginate: 'true',
+    size: 10,
+    page: 0,
+    orderBy: []
+  }
+
+  filteredCount: number;
+
+  form: FormGroup;
+
 
   constructor(private fb: FormBuilder, private service: PessoaService) { }
 
@@ -23,12 +37,13 @@ export class PessoaSelectComponent implements OnInit {
     this.form = this.fb.group({
       oid: this.fb.control('', Validators.required),
     });
-    this.loadData();
+    this.refresh();
   }
 
-  loadData() {
-    this.service.findAll({}).subscribe(response => {
+  refresh() {
+    this.service.findAll(this.dataSearch).subscribe(response => {
       this.dataList = response.data;
+      this.filteredCount = response.filteredCount;
     });
   }
 
@@ -38,5 +53,18 @@ export class PessoaSelectComponent implements OnInit {
   onCancel() {
     this.canceled.emit('canceled');
   }
+
+  onPageChange(event: PageEvent) {
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
+
+  }
+  onSearchChange(event) {
+    this.dataSearch = Object.assign(this.dataSearch, { page: 0})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
+  }
+
 
 }

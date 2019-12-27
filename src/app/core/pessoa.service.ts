@@ -13,7 +13,7 @@ export class PessoaService {
   findAll(data: any): Observable<any> {
     cleanEmptyFields(data);
     const params = new HttpParams({ fromObject: data });
-    return this.http.get<any>(`http://localhost:8080/api/v1/pessoas?paginate=true&page=0&size=10`, { params });
+    return this.http.get<any>(`http://localhost:8080/api/v1/pessoas`, { params });
   }
 
   find(oid: number): Observable<any> {

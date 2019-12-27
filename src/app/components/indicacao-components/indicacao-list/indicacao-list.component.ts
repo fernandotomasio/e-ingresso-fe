@@ -14,18 +14,12 @@ export class IndicacaoListComponent implements OnInit {
   @Input() eventoOid: number;
   dataList$: Observable<any>;
 
-
   paginateOptions = []
-
-  totalCount: number;
-
-  filteredCount: number;
-
 
   dataSearch = {
     paginate: 'true',
-    size: '10',
-    page: '0',
+    size: 2,
+    page: 0,
     orderBy: []
   };
 
@@ -34,7 +28,7 @@ export class IndicacaoListComponent implements OnInit {
   constructor(private service: IndicacaoService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ] } );
+    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } );
   }
   raiseAction(action: string, oid: number) {
     this.action.emit({
@@ -42,12 +36,21 @@ export class IndicacaoListComponent implements OnInit {
       oid
     });
   }
+  onPageChange(event: PageEvent) {
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
+
+  }
   onSearchChange(event) {
-    console.log(event);
+    this.dataSearch = Object.assign(this.dataSearch, { page: 0})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
   }
 
-  onPageChange(event: PageEvent) {
-    console.log(event);
+  refresh() {
+    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch });
+
   }
 
 }

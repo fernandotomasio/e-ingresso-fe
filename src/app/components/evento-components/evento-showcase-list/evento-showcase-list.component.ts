@@ -16,15 +16,10 @@ export class EventoShowcaseListComponent implements OnInit {
 
   paginateOptions = []
 
-  totalCount: number;
-
-  filteredCount: number;
-
-
   dataSearch = {
     paginate: 'true',
-    size: '10',
-    page: '0',
+    size: 5,
+    page: 0,
     orderBy: []
   }
 
@@ -35,7 +30,7 @@ export class EventoShowcaseListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({ categoriaOids: [ this.categoriaOid]});
+    this.dataList$ = this.service.findAll({ categoriaOids: [ this.categoriaOid], ...this.dataSearch});
   }
 
   raiseAction(action: string, oid: number) {
@@ -44,11 +39,26 @@ export class EventoShowcaseListComponent implements OnInit {
       oid
     });
   }
-  onSearchChange(event) {
-    console.log(event);
+
+  refresh() {
+    this.dataList$ = this.service.findAll( { categoriaOids: [ this.categoriaOid], ...this.dataSearch});
+
   }
+
+
   onPageChange(event: PageEvent) {
-    console.log(event);
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
+
   }
+
+
+  onSearchChange(event) {
+    this.dataSearch = Object.assign(this.dataSearch, { page: '0'})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
+  }
+
 
 }

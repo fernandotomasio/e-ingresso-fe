@@ -18,15 +18,11 @@ export class InscricaoListComponent implements OnInit {
 
   paginateOptions = []
 
-  totalCount: number;
-
-  filteredCount: number;
-
 
   dataSearch = {
     paginate: 'true',
-    size: '10',
-    page: '0',
+    size: 2,
+    page: 0,
     orderBy: []
   }
 
@@ -41,12 +37,20 @@ export class InscricaoListComponent implements OnInit {
       oid
     });
   }
-  onSearchChange(event) {
-    console.log(event);
-  }
-
   onPageChange(event: PageEvent) {
-    console.log(event);
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
+
+  }
+  onSearchChange(event) {
+    this.dataSearch = Object.assign(this.dataSearch, { page: 0})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
   }
 
+  refresh() {
+    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch });
+
+  }
 }

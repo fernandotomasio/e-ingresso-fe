@@ -1,6 +1,8 @@
 <h1>{{ titulo }}</h1>
 <ein-categoria-search (changed)="onSearchChange($event)"></ein-categoria-search>
+<div>
 
+</div>
 <table mat-table [dataSource]="(dataList$ | async)?.data" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -44,5 +46,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+<mat-paginator [length]="(dataList$ | async)?.filteredCount" [pageSize]="dataSearch.size"
                [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

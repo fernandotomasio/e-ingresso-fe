@@ -17,17 +17,12 @@ export class CategoriaListComponent implements OnInit {
 
   displayedColumns: string[] = ['oid', 'titulo', 'descricao', 'controls'];
 
-  paginateOptions = []
-
-  totalCount: number;
-
-  filteredCount: number;
-
+  paginateOptions = [];
 
   dataSearch = {
     paginate: 'true',
-    size: '10',
-    page: '0',
+    size: 10,
+    page: 0,
     orderBy: []
   }
 
@@ -38,7 +33,7 @@ export class CategoriaListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll({});
+    this.dataList$ = this.service.findAll(this.dataSearch);
 
   }
   raiseAction(action: string, oid: number) {
@@ -49,11 +44,15 @@ export class CategoriaListComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    console.log(event);
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
   }
 
 
   onSearchChange(event) {
-    console.log(event);
+    this.dataSearch = Object.assign(this.dataSearch, { page: '0'})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
   }
 }

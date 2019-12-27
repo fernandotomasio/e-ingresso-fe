@@ -11,5 +11,5 @@
   </mat-card-actions>
 </mat-card>
 
-<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+<mat-paginator [length]="(dataList$ | async)?.filteredCount" [pageSize]="dataSearch.size"
                [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

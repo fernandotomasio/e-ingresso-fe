@@ -19,15 +19,10 @@ export class EventoListComponent implements OnInit {
 
   paginateOptions = [];
 
-  totalCount: number;
-
-  filteredCount: number;
-
-
   dataSearch = {
     paginate: 'true',
-    size: '10',
-    page: '0',
+    size: 5,
+    page: 0,
     orderBy: []
   };
 
@@ -38,7 +33,8 @@ export class EventoListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll({});
+    this.dataList$ = this.service.findAll(this.dataSearch);
+
   }
 
   raiseAction(action: string, oid: number) {
@@ -48,11 +44,18 @@ export class EventoListComponent implements OnInit {
     });
   }
 
-  onSearchChange(event) {
-    console.log(event);
-  }
   onPageChange(event: PageEvent) {
-    console.log(event);
+    this.dataSearch.size = event.pageSize
+    this.dataSearch.page = event.pageIndex
+    this.refresh();
+
+  }
+
+
+  onSearchChange(event) {
+    this.dataSearch = Object.assign(this.dataSearch, { page: '0'})
+    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.refresh();
   }
 
 }

@@ -15,13 +15,13 @@ export class PessoaSelectComponent implements OnInit {
 
   dataList: any;
 
-  displayedColumns: string[] = ['control', 'nome'];
+  displayedColumns: string[] = ['control', 'nome', 'cpf', 'email'];
 
   paginateOptions = []
 
   dataSearch = {
     paginate: 'true',
-    size: 10,
+    size: 5,
     page: 0,
     orderBy: []
   }

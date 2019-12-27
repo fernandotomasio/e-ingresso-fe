@@ -28,7 +28,7 @@ export class InscricaoListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ] } );
+    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } );
   }
 
   raiseAction(action: string, oid: number) {

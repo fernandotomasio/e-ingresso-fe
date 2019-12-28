@@ -3,7 +3,7 @@
 <div>
 
 </div>
-<table mat-table [dataSource]="(dataList$ | async)?.data" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataList" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -46,5 +46,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<mat-paginator [length]="(dataList$ | async)?.filteredCount" [pageSize]="dataSearch.size"
+<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
                [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>

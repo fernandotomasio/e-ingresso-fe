@@ -13,7 +13,9 @@ export class CategoriaListComponent implements OnInit {
   @Output() action = new EventEmitter<any>();
   titulo = 'Lista de Categorias';
 
-  dataList$: Observable<any>;
+  dataList = [];
+
+  filteredCount: number;
 
   displayedColumns: string[] = ['oid', 'titulo', 'descricao', 'controls'];
 
@@ -33,7 +35,10 @@ export class CategoriaListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll(this.dataSearch);
+    this.service.findAll(this.dataSearch).subscribe( response => {
+      this.dataList = response.data;
+      this.filteredCount = response.filteredCount
+    });
 
   }
   raiseAction(action: string, oid: number) {

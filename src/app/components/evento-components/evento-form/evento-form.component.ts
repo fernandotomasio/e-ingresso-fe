@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EventoService } from '../../../core/evento.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CategoriaService } from '../../../core/categoria.service';
 
 @Component({
   selector: 'ein-evento-form',
@@ -26,10 +27,14 @@ export class EventoFormComponent implements OnInit {
   ];
 
   constructor(private service: EventoService,
+              private categoriaService: CategoriaService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
     this.data$ = this.service.find(this.oid);
+    this.categoriaService.findAll({}).subscribe(response => {
+      this.categorias = response.data;
+    });
 
     this.form = this.fb.group({
 
@@ -58,6 +63,18 @@ export class EventoFormComponent implements OnInit {
       observacoes: this.fb.control(''),
 
     });
+
+    if (this.oid) {
+      this.service.find(this.oid)
+        .subscribe(data => {
+            this.form.patchValue({
+              categoriaOid: data.categoria.oid,
+              ...data
+            });
+            console.log(data);
+        }
+        );
+    }
 
   }
 

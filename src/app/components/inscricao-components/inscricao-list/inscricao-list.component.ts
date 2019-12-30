@@ -11,8 +11,8 @@ import { PageEvent } from '@angular/material';
 export class InscricaoListComponent implements OnInit {
   @Output() action = new EventEmitter<any>();
   @Input() eventoOid: number;
-  dataList$: Observable<any>;
-
+  dataList: any;
+  filteredCount: any
   constructor(private service: InscricaoService) { }
 
 
@@ -28,7 +28,7 @@ export class InscricaoListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } );
+    this.refresh();
   }
 
   raiseAction(action: string, oid: number) {
@@ -50,7 +50,11 @@ export class InscricaoListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch });
+    this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } ).subscribe(response => {
+        this.dataList = response.data;
+        this.filteredCount = response.filteredCount;
+      }
+    );
 
   }
 }

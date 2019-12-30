@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { IndicacaoService } from '../../../core/indicacao.service';
 import { MatDialog } from '@angular/material';
+import { EventoRemoveDialogComponent } from '../../evento-components/evento-remove/evento-remove.component';
 
 @Component({
   selector: 'ein-indicacao-remove',
@@ -20,13 +21,14 @@ export class IndicacaoRemoveComponent implements OnInit {
   }
   @HostListener('click', [ '$event.target' ])
   remove() {
-    const dialogRef = this.dialog.open(IndicacaoRemoveDialogComponent);
+    const dialogRef = this.dialog.open(EventoRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        this.confirm();
+      }
     });
   }
-
   confirm(): void {
     this.service.remove(this.oid).subscribe(() => {
       this.deleted.emit('deleted');

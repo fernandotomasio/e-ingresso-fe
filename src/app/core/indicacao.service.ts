@@ -11,7 +11,7 @@ export class IndicacaoService {
   constructor(private http: HttpClient) { }
 
   remove(oid: number): Observable<any> {
-    return null;
+    return this.http.delete(`http://localhost:8080/api/v1/indicacoes/${oid}`);
   }
 
   findAll(data: any): Observable<any> {

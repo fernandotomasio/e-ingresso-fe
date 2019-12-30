@@ -19,5 +19,9 @@ export class EventoEditPageComponent implements OnInit {
     });
   }
 
+  onSave(event: any) {
+    this.router.navigate(['/eventos', (event ? event.oid : this.oid), 'detail']);
+  }
+
 
 }

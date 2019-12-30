@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { InscricaoService } from '../../../core/inscricao.service';
 import { MatDialog } from '@angular/material';
+import { EventoRemoveDialogComponent } from '../../evento-components/evento-remove/evento-remove.component';
 
 @Component({
   selector: 'ein-inscricao-remove',
@@ -20,10 +21,12 @@ export class InscricaoRemoveComponent implements OnInit {
   }
   @HostListener('click', [ '$event.target' ])
   remove() {
-    const dialogRef = this.dialog.open(InscricaoRemoveDialogComponent);
+    const dialogRef = this.dialog.open(EventoRemoveDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        this.confirm();
+      }
     });
   }
 

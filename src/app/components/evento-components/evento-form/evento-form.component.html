@@ -1,4 +1,76 @@
-<p>
-  <b>OID: </b>
-  {{ (data$| async)?.oid }}
-</p>
+<form class="basic-form" [formGroup]="form" (submit)="onSubmit()">
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput type="text"
+             placeholder="Sigla"  formControlName="sigla">
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput type="text"
+             placeholder="Nome"  formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput type="text"
+             placeholder="Descrição"  formControlName="descricao">
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="categoriaOid">
+        <mat-option *ngFor="let categoria of categorias" [value]="categoria.oid">
+          {{categoria.titulo}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="statusEvento">
+        <mat-option *ngFor="let status of statusEventos" [value]="status.value">
+          {{status.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput [matDatepicker]="dataInicio"
+             placeholder="Data de Início do Evento"  formControlName="dataInicio">
+      <mat-datepicker-toggle matSuffix [for]="dataInicio"></mat-datepicker-toggle>
+      <mat-datepicker #dataInicio></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput [matDatepicker]="dataTermino"
+             placeholder="Data de Término do Evento"  formControlName="dataTermino">
+      <mat-datepicker-toggle matSuffix [for]="dataTermino"></mat-datepicker-toggle>
+      <mat-datepicker #dataTermino></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput [matDatepicker]="dataInicioIndicacao"
+             placeholder="Data de Início das Indicações"  formControlName="dataInicioIndicacao">
+      <mat-datepicker-toggle matSuffix [for]="dataInicioIndicacao"></mat-datepicker-toggle>
+      <mat-datepicker #dataInicioIndicacao></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput [matDatepicker]="dataTerminoIndicacao"
+             placeholder="Data de Término das Indicações"  formControlName="dataTerminoIndicacao">
+      <mat-datepicker-toggle matSuffix [for]="dataTerminoIndicacao"></mat-datepicker-toggle>
+      <mat-datepicker #dataTerminoIndicacao></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput type="text"
+             placeholder="Ticket"  formControlName="ticket">
+    </mat-form-field>
+
+    <mat-form-field  class="basic-full-width">
+      <input matInput type="text"
+             placeholder="Observações"  formControlName="observacoes">
+    </mat-form-field>
+
+    <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
+    <button mat-raised-button type="submit" color="primary">Gravar</button>
+</form>

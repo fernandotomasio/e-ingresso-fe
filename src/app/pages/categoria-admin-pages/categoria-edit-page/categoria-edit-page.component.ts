@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -17,6 +17,10 @@ export class CategoriaEditPageComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.oid = params.oid;
     });
-  }
 
+
+  }
+  onSave(event: any) {
+    this.router.navigate(['/categorias', (event ? event.oid : this.oid), 'detail']);
+  }
 }

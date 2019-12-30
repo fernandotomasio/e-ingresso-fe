@@ -16,7 +16,13 @@ export class CategoriaService {
     return this.http.get(`http://localhost:8080/api/v1/categorias`, { params });
   }
   remove(oid: number): Observable<any> {
-    return this.http.delete(`http://localhost:8080/api/v1/categorias/${oid}`);
+    return this.http.delete<any>(`http://localhost:8080/api/v1/categorias/${oid}`)
+  }
+
+  save(data:any): Observable<any>{
+    return !data.oid
+      ? this.http.post<any>(`http://localhost:8080/api/v1/categorias/`, data)
+      : this.http.put<any>(`http://localhost:8080/api/v1/categorias/`, data);
   }
   find(oid: number): Observable<any> {
     return this.http.get(`http://localhost:8080/api/v1/categorias/${oid}`);

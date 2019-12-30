@@ -12,6 +12,8 @@ import { EventoShowcaseListComponent } from './evento-showcase-list/evento-showc
 import { EventoRemoveComponent, EventoRemoveDialogComponent } from './evento-remove/evento-remove.component';
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
+// import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 
 
 
@@ -31,6 +33,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   entryComponents: [
     EventoRemoveDialogComponent
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    // {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+    // {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
   ]
 })
 export class EventoComponentsModule { }

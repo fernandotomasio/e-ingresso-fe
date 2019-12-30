@@ -1,2 +1,2 @@
-<ein-evento-form [oid]="oid"></ein-evento-form>
+<ein-evento-form [oid]="oid"  (saved)="onSave($event)"></ein-evento-form>
 <a mat-button [routerLink]="['/eventos', oid ,'detail']">detail evento</a>

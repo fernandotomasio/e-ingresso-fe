@@ -1,4 +1,18 @@
-<p>
-  <b>OID: </b>
-  {{ (data$| async)?.oid }}
-</p>
+<form class="basic-form" [formGroup]="form" (submit)="onSubmit()">
+  <div fxLayout="row wrap">
+
+    <mat-form-field>
+      <input matInput type="text"
+             placeholder="Título"  formControlName="titulo">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="text"
+             placeholder="Descrição"  formControlName="descricao">
+    </mat-form-field>
+
+    <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
+    <button mat-raised-button type="submit" color="primary">Gravar</button>
+  </div>
+</form>
+

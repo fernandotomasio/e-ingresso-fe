@@ -22,4 +22,9 @@ export class EventoService {
   remove(oid: number): Observable<any> {
     return this.http.delete(`http://localhost:8080/api/v1/eventos/${oid}`);
   }
+  save(data: any): Observable<any>{
+    return !data.oid
+      ? this.http.post<any>(`http://localhost:8080/api/v1/eventos/`, data)
+      : this.http.put<any>(`http://localhost:8080/api/v1/eventos/`, data);
+  }
 }

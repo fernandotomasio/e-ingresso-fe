@@ -12,8 +12,8 @@ import { PageEvent } from '@angular/material';
 export class IndicacaoListComponent implements OnInit {
   @Output() action = new EventEmitter<any>();
   @Input() eventoOid: number;
-  dataList$: Observable<any>;
-
+  dataList: any;
+  filteredCount: number
   paginateOptions = []
 
   dataSearch = {
@@ -28,7 +28,7 @@ export class IndicacaoListComponent implements OnInit {
   constructor(private service: IndicacaoService) { }
 
   ngOnInit() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } );
+    this.refresh();
   }
   raiseAction(action: string, oid: number) {
     this.action.emit({
@@ -49,7 +49,10 @@ export class IndicacaoListComponent implements OnInit {
   }
 
   refresh() {
-    this.dataList$ = this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch });
+    this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } ).subscribe(response => {
+      this.dataList = response.data;
+      this.filteredCount = response.filteredCount;
+    });
 
   }
 

@@ -51,6 +51,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
 import {LayoutModule} from '@angular/cdk/layout';
 import { TextFieldModule } from '@angular/cdk/text-field';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 /**
  * NgModule that includes all Material modules that are required to serve the demo-app.
@@ -91,6 +92,7 @@ import { TextFieldModule } from '@angular/cdk/text-field';
     MatTooltipModule,
     MatNativeDateModule,
     CdkTableModule,
+    DragDropModule,
     A11yModule,
     BidiModule,
     CdkAccordionModule,

@@ -28,8 +28,11 @@ const routes: Routes = [
       {
         path: 'favoritos',
         loadChildren: './pages/favoritos-pages/favoritos-pages.module#FavoritosPagesModule'
+      },
+      {
+        path: 'workflow',
+        loadChildren: './pages/workflow-pages/workflow-pages.module#WorkflowPagesModule'
       }
-
     ]
   }
 ];

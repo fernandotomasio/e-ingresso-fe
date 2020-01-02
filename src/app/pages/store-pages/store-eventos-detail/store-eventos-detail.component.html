@@ -1,6 +1,7 @@
 <div class="container">
   <a mat-button [routerLink]="['/store', oid ,'indicacao']">NOVA INDICAÇÃO</a>
   <a mat-button [routerLink]="['/store', oid ,'inscricao']">NOVA INSCRIÇÃO</a>
+  <a mat-button [routerLink]="['/workflow']">Analisar</a>
   <ein-evento-showcase [oid]="oid"  (action)="onAction($event)"></ein-evento-showcase>
 
 </div>

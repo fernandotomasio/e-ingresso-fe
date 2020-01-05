@@ -1,18 +1,49 @@
-<h1>Lista de pessoas</h1>
+<h1>{{ titulo }}</h1>
+<ein-pessoa-search (changed)="onSearchChange($event)"></ein-pessoa-search>
+<div>
 
-<table>
-  <thead>
-  <th>CPF</th>
-  <th>Nome Completo</th>
-  <th>SARAM</th>
-  </thead>
-  <tbody>
-  <tr *ngFor="let pessoa of (dataList$ | async)?.data">
-    <td>{{pessoa.cpf}}</td>
-    <td>{{pessoa.nome}}</td>
-    <td>{{pessoa.saram}}</td>
-  </tr>
-  </tbody>
+</div>
+<table mat-table [dataSource]="dataList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="oid">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let item"> {{item.oid}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="cpf">
+    <th mat-header-cell *matHeaderCellDef> CPF </th>
+    <td mat-cell *matCellDef="let item"> {{item.cpf}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let item"> {{item.nome}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="saram">
+    <th mat-header-cell *matHeaderCellDef> SARAM </th>
+    <td mat-cell *matCellDef="let item"> {{item.saram}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="controls">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let item">
+      <a mat-button  (click)="raiseAction('detail', item.oid)">DETALHAR</a>
+      <a mat-button  (click)="raiseAction('edit', item.oid)">EDITAR</a>
+      <ein-pessoa-remove [oid]="item.oid" (deleted)="refresh()">REMOVER</ein-pessoa-remove>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
 <mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"

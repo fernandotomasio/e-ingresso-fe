@@ -6,17 +6,22 @@ import { PessoaSelectComponent } from './pessoa-select/pessoa-select.component';
 import { PessoaDialogComponent, PessoaInputComponent } from './pessoa-input/pessoa-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material-module';
+import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
+import {PessoaRemoveComponent, PessoaRemoveDialogComponent} from './pessoa-remove/pessoa-remove.component';
+import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
 
 
 
 @NgModule({
-  declarations: [PessoaListComponent, PessoaSearchComponent, PessoaSelectComponent, PessoaInputComponent, PessoaDialogComponent],
+  declarations: [PessoaListComponent, PessoaSearchComponent, PessoaSelectComponent, PessoaInputComponent,
+    PessoaDialogComponent, PessoaFormComponent, PessoaRemoveComponent, PessoaDetailComponent, PessoaRemoveDialogComponent],
   imports: [
     CommonModule, ReactiveFormsModule, MaterialModule
   ],
-  exports: [PessoaListComponent, PessoaSelectComponent, PessoaInputComponent],
+  exports: [PessoaListComponent, PessoaSelectComponent, PessoaInputComponent,
+    PessoaFormComponent, PessoaDetailComponent],
   entryComponents: [
-    PessoaDialogComponent
+    PessoaDialogComponent, PessoaRemoveDialogComponent
   ]
 })
 export class PessoaComponentsModule { }

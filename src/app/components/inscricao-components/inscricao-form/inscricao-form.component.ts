@@ -13,12 +13,14 @@ export class InscricaoFormComponent implements OnInit {
   @Output() saved = new EventEmitter<any>()
   @Output() canceled = new EventEmitter();
   @Input() eventoOid: any
+  @Input() oid: any
 
   constructor(private service: InscricaoService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.fb.group({
+      oid: this.fb.control(''),
       pessoaOid: this.fb.control('', Validators.required),
       eventoOid: this.eventoOid,
       email: this.fb.control('', [Validators.required, Validators.maxLength(255), Validators.email]),
@@ -26,6 +28,18 @@ export class InscricaoFormComponent implements OnInit {
       justificativa: this.fb.control(''),
       observacoes: this.fb.control(''),
     });
+
+    if (this.oid) {
+      this.service.find(this.oid)
+        .subscribe(data => {
+            this.form.patchValue({
+              pessoaOid: data.pessoa.oid,
+              eventoOid: data.evento.oid,
+              ...data
+            });
+          }
+        );
+    }
 
   }
 

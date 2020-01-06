@@ -11,6 +11,7 @@ import { IndicacaoService } from '../../../core/indicacao.service';
 export class IndicacaoFormComponent implements OnInit {
 
   form: FormGroup;
+  @Input() oid: any
   @Input() eventoOid: any
   @Output() saved = new EventEmitter<any>();
   @Output() canceled = new EventEmitter();
@@ -20,6 +21,7 @@ export class IndicacaoFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      oid: this.fb.control(''),
       pessoaOid: this.fb.control('', Validators.required),
       eventoOid: this.eventoOid,
       email: this.fb.control('', [Validators.required, Validators.maxLength(255), Validators.email]),
@@ -28,10 +30,21 @@ export class IndicacaoFormComponent implements OnInit {
       observacoes: this.fb.control(''),
     });
 
+    if (this.oid) {
+      this.service.find(this.oid)
+        .subscribe(data => {
+            this.form.patchValue({
+              pessoaOid: data.pessoa.oid,
+              eventoOid: data.evento.oid,
+              ...data
+            });
+          }
+        );
+    }
+
   }
 
   submit() {
-    console.log(this.form.value)
     if (this.form.valid) {
       this.service.save(this.form.value).subscribe(response => {
         this.saved.emit(response);

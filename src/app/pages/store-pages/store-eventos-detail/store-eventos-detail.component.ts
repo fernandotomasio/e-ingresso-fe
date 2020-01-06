@@ -23,10 +23,10 @@ export class StoreEventosDetailComponent implements OnInit {
   onAction(event: any) {
 
     if (event.action === 'editInscricao') {
-      this.router.navigate(['/store', event.oid , 'inscricao']);
+      this.router.navigate(['/store', 'inscricao',  event.oid , 'edit']);
     }
     if (event.action === 'editIndicacao') {
-      this.router.navigate(['/store', event.oid , 'indicacao']);
+      this.router.navigate(['/store', 'indicacao', event.oid , 'edit']);
     }
   }
 

@@ -9,6 +9,8 @@ export const StorePagesRoutes: Routes = [
   {path: '', component: StoreCategoriasPageComponent},
   {path: ':oid/eventos', component: StoreEventosPageComponent},
   {path: 'eventos/:oid', component: StoreEventosDetailComponent},
-  {path: ':oid/inscricao', component: StoreInscricaoEditComponent},
-  {path: ':oid/indicacao', component: StoreIndicacaoEditComponent}
+  {path: ':eventoOid/inscricao', component: StoreInscricaoEditComponent},
+  {path: 'inscricao/:oid/edit', component: StoreInscricaoEditComponent},
+  {path: ':eventoOid/indicacao', component: StoreIndicacaoEditComponent},
+  {path: 'indicacao/:oid/edit', component: StoreIndicacaoEditComponent}
 ];

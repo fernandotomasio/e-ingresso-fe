@@ -19,12 +19,12 @@ export class InscricaoService {
     const params = new HttpParams({ fromObject: data });
     return this.http.get(`http://localhost:8080/api/v1/inscricoes`, { params });
   }
-
+  find(oid: number): Observable<any> {
+    return this.http.get(`http://localhost:8080/api/v1/inscricoes/${oid}`);
+  }
   save(data: any): Observable<any> {
     return !data.oid
-      // tslint:disable-next-line:no-shadowed-variable
-      ? this.http.post<any>(`http://localhost:8080/api/v1/inscricoes`, data).pipe(map(data => data))
-      // tslint:disable-next-line:no-shadowed-variable
-      : this.http.put<any>(`http://localhost:8080/api/v1/inscricoes`, data).pipe(map(data => data));
+      ? this.http.post<any>(`http://localhost:8080/api/v1/inscricoes`, data)
+      : this.http.put<any>(`http://localhost:8080/api/v1/inscricoes`, data);
   }
 }

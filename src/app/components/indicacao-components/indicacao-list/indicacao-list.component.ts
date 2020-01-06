@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
-import { InscricaoService } from '../../../core/inscricao.service';
 import { IndicacaoService } from '../../../core/indicacao.service';
 import { PageEvent } from '@angular/material';
 

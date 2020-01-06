@@ -11,6 +11,7 @@ export class StoreIndicacaoEditComponent implements OnInit {
 
   eventoOid: number;
   oid: number;
+  inscricaoOid: number;
 
   constructor(private service: IndicacaoService,
               private route: ActivatedRoute,
@@ -20,6 +21,7 @@ export class StoreIndicacaoEditComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.eventoOid = params.eventoOid;
       this.oid = params.oid;
+      this.inscricaoOid = params.inscricaoOid;
     });
   }
 

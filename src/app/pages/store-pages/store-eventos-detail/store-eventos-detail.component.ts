@@ -21,7 +21,9 @@ export class StoreEventosDetailComponent implements OnInit {
     });
   }
   onAction(event: any) {
-
+    if (event.action === 'import') {
+      this.router.navigate(['/store', 'indicacao',  event.oid , 'import']);
+    }
     if (event.action === 'editInscricao') {
       this.router.navigate(['/store', 'inscricao',  event.oid , 'edit']);
     }

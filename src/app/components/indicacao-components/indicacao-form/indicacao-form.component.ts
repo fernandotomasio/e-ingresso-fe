@@ -13,10 +13,12 @@ export class IndicacaoFormComponent implements OnInit {
   form: FormGroup;
   @Input() oid: any
   @Input() eventoOid: any
+  @Input() inscricaoOid: any
   @Output() saved = new EventEmitter<any>();
   @Output() canceled = new EventEmitter();
 
   constructor(private service: IndicacaoService,
+              private inscricaoService: InscricaoService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -41,7 +43,19 @@ export class IndicacaoFormComponent implements OnInit {
           }
         );
     }
-
+    if (this.inscricaoOid) {
+      this.inscricaoService.find(this.inscricaoOid)
+        .subscribe(data => {
+            this.form.patchValue({
+              pessoaOid: data.pessoa.oid,
+              eventoOid: data.evento.oid,
+              email: data.email,
+              telefone: data.telefone,
+              inscricaoOid: this.inscricaoOid
+            });
+          }
+        );
+    }
   }
 
   submit() {

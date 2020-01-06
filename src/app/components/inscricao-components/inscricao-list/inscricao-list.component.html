@@ -7,6 +7,7 @@
   </mat-card-header>
   <mat-card-actions>
     <a mat-button (click)="raiseAction('edit', item.oid)" >EDITAR</a>
+    <a mat-button (click)="raiseAction('import', item.oid)" >INDICAR</a>
     <ein-inscricao-remove [oid]="item.oid"  (deleted)="refresh()">REMOVER</ein-inscricao-remove>
   </mat-card-actions>
 </mat-card>

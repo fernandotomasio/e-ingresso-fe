@@ -12,5 +12,6 @@ export const StorePagesRoutes: Routes = [
   {path: ':eventoOid/inscricao', component: StoreInscricaoEditComponent},
   {path: 'inscricao/:oid/edit', component: StoreInscricaoEditComponent},
   {path: ':eventoOid/indicacao', component: StoreIndicacaoEditComponent},
-  {path: 'indicacao/:oid/edit', component: StoreIndicacaoEditComponent}
+  {path: 'indicacao/:oid/edit', component: StoreIndicacaoEditComponent},
+  {path: 'indicacao/:inscricaoOid/import', component: StoreIndicacaoEditComponent}
 ];

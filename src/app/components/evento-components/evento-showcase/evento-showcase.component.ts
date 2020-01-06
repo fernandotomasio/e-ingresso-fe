@@ -19,7 +19,7 @@ export class EventoShowcaseComponent implements OnInit {
     this.data$ = this.service.find(this.oid);
   }
   onInscricaoAction(event: any) {
-    this.action.emit({ ...event,  action: 'editInscricao'});
+    this.action.emit({ ...event,  action: (event.action === 'edit') ? 'editInscricao' : event.action});
   }
   onIndicacaoAction(event: any) {
     this.action.emit({ ...event,  action: 'editIndicacao'});

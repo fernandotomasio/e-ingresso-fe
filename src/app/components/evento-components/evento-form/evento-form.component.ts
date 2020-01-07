@@ -71,7 +71,6 @@ export class EventoFormComponent implements OnInit {
               categoriaOid: data.categoria.oid,
               ...data
             });
-            console.log(data);
         }
         );
     }

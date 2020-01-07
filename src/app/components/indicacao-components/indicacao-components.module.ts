@@ -7,16 +7,19 @@ import { IndicacaoSearchComponent } from './indicacao-search/indicacao-search.co
 import { IndicacaoFormComponent } from './indicacao-form/indicacao-form.component';
 import { PessoaComponentsModule } from '../pessoa-components/pessoa-components.module';
 import { IndicacaoRemoveComponent, IndicacaoRemoveDialogComponent } from './indicacao-remove/indicacao-remove.component';
+import { IndicacaoContainerComponent } from './indicacao-container/indicacao-container.component';
+import { IndicacaoDetailComponent } from './indicacao-detail/indicacao-detail.component';
 
 
 
 @NgModule({
   declarations: [IndicacaoListComponent, IndicacaoSearchComponent, IndicacaoFormComponent,
-    IndicacaoRemoveComponent, IndicacaoRemoveDialogComponent],
+    IndicacaoRemoveComponent, IndicacaoRemoveDialogComponent, IndicacaoContainerComponent, IndicacaoDetailComponent],
   imports: [
     CommonModule, ReactiveFormsModule, MaterialModule, PessoaComponentsModule,
   ],
-  exports: [IndicacaoListComponent, IndicacaoFormComponent],
+  exports: [IndicacaoListComponent, IndicacaoFormComponent,
+    IndicacaoContainerComponent, IndicacaoDetailComponent],
   entryComponents: [
     IndicacaoRemoveDialogComponent
   ]

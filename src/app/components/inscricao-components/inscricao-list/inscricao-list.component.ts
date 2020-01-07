@@ -21,7 +21,7 @@ export class InscricaoListComponent implements OnInit {
 
   dataSearch = {
     paginate: 'true',
-    size: 2,
+    size: 10,
     page: 0,
     orderBy: []
   }

@@ -25,7 +25,6 @@ export class StoreEventosPageComponent implements OnInit {
   }
 
   onAction(event: any) {
-    console.log(event)
     if (event.action === 'detail') {
       this.router.navigate(['/store', 'eventos', event.oid]);
     }

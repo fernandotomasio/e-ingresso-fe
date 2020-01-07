@@ -3,5 +3,5 @@
   <mat-list-option cdkDrag *ngFor="let item of data.indicacoes; let i = index"  (click)="raiseAction('detail', item.oid)">
     {{ i + 1}} - {{ item.pessoa.nome }}
   </mat-list-option>
-  <button mat-flat-button (click)="submit()">Salvar</button>
 </mat-selection-list>
+  <button mat-flat-button (click)="submit()">Salvar</button>

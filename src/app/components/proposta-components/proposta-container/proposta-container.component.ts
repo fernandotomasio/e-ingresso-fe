@@ -11,10 +11,14 @@ export class PropostaContainerComponent implements OnInit {
   oid: number;
   @Output() action = new EventEmitter<any>();
   data: any = {
+    oid: '',
+    organizacao: {
+    },
+    status: 'ABERTO',
     indicacoes: [
 
     ]
-  }
+  };
 
   constructor() { }
 
@@ -23,7 +27,7 @@ export class PropostaContainerComponent implements OnInit {
   }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      console.log('igual', event.container.data)
+      console.log('igual', event.container.data);
       moveItemInArray(this.data.indicacoes, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
@@ -37,5 +41,9 @@ export class PropostaContainerComponent implements OnInit {
       action,
       oid
     });
+  }
+
+  submit() {
+    console.log(this.data);
   }
 }

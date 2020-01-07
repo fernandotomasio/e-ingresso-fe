@@ -1,6 +1,6 @@
 <h1>proposta-container</h1>
-<mat-selection-list #shoes>
-  <mat-list-option *ngFor="let item of data.indicacoes" >
-    {{ item.oid }}
+<mat-selection-list #contaner1 cdkDropList [cdkDropListData]="data.indicacoes"  (cdkDropListDropped)="drop($event)">
+  <mat-list-option cdkDrag *ngFor="let item of data.indicacoes; let i = index"  (click)="raiseAction('detail', item.oid)">
+    {{ i + 1}} - {{ item.pessoa.nome }}
   </mat-list-option>
 </mat-selection-list>

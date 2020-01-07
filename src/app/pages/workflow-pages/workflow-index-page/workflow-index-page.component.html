@@ -1,42 +1,16 @@
 <h1>Evento OID: {{ eventoOid }}</h1>
-<div class="example-container">
-  <ein-proposta-container></ein-proposta-container>
-  <h2>My list</h2>
+<div cdkDropListGroup>
+  <div class="example-container">
+    <ein-proposta-container (action)="onAction($event)"></ein-proposta-container>
+  </div>
 
+  <div class="example-container">
+    <ein-indicacao-repository [eventoOid]="eventoOid" (action)="onAction($event)"></ein-indicacao-repository>
+  </div>
 
-
-  <div
-    cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="todo"
-    [cdkDropListConnectedTo]="[doneList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  <div class="example-container">
+    <ein-indicacao-detail [oid]="indicacaoOid" ></ein-indicacao-detail>
   </div>
 </div>
 
-<div class="example-container">
-
-  <mat-tab-group>
-    <mat-tab label="INDICAÇÕES">
-      <ein-indicacao-repository [eventoOid]="eventoOid" (action)="onAction($event)"></ein-indicacao-repository>
-    </mat-tab>
-  </mat-tab-group>
-  <h2>Own list</h2>
-  <div
-    cdkDropList
-    #doneList="cdkDropList"
-    [cdkDropListData]="done"
-    [cdkDropListConnectedTo]="[todoList]"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-  </div>
-
-</div>
-<div class="example-container">
-  <ein-indicacao-detail [oid]="indicacaoOid"></ein-indicacao-detail>
-
-</div>
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ein-proposta-container',
@@ -8,45 +9,33 @@ import { Component, OnInit } from '@angular/core';
 export class PropostaContainerComponent implements OnInit {
 
   oid: number;
-
+  @Output() action = new EventEmitter<any>();
   data: any = {
     indicacoes: [
-      {
-        oid: 1
-      },
-      {
-        oid: 2
-      },
-      {
-        oid: 4
-      },
-      {
-        oid: 5
-      },
-      {
-        oid: 6
-      },
-      {
-        oid: 7
-      },
-      {
-        oid: 8
-      },
-      {
-        oid: 9
-      },
-      {
-        oid: 10
-      },
-      {
-        oid: 11
-      }
+
     ]
   }
 
   constructor() { }
 
+
   ngOnInit() {
   }
-
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      console.log('igual', event.container.data)
+      moveItemInArray(this.data.indicacoes, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+  raiseAction(action: string, oid: number) {
+    this.action.emit({
+      action,
+      oid
+    });
+  }
 }

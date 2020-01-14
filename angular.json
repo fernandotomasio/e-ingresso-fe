@@ -17,10 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/e-ingresso-fe",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
+            "baseHref": "/e-ingresso-fe/",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": [
@@ -41,12 +42,12 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
+              "aot": false,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -62,6 +63,23 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "homolog": {
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.homolog.ts"
+                }
+              ]
             }
           }
         },
@@ -73,6 +91,9 @@
           "configurations": {
             "production": {
               "browserTarget": "e-ingresso-fe:build:production"
+            },
+            "homolog": {
+              "browserTarget": "e-ingresso-fe:build:homolog"
             }
           }
         },

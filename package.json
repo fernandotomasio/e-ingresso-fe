@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-dev": "ng build",
+    "prod": "ng build --prod --extract-css=false --build-optimizer=false --aot=false",
+    "hom": "ng build --extract-css=false  --build-optimizer=false --aot=false --configuration=homolog",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

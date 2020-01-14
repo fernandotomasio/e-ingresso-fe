@@ -9,11 +9,13 @@ import { AppService } from '../../app.service';
 export class LoggedUserComponent implements OnInit {
 
   user = {}
+  organization = ''
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
     this.user = this.appService.getUser();
+    this.organization = this.appService.getOrganization();
   }
 
 }

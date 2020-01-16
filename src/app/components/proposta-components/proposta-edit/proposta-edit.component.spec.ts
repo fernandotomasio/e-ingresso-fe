@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PropostaContainerComponent } from './proposta-container.component';
+import { PropostaEditComponent } from './proposta-edit.component';
 
 describe('PropostaContainerComponent', () => {
-  let component: PropostaContainerComponent;
-  let fixture: ComponentFixture<PropostaContainerComponent>;
+  let component: PropostaEditComponent;
+  let fixture: ComponentFixture<PropostaEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropostaContainerComponent ]
+      declarations: [ PropostaEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PropostaContainerComponent);
+    fixture = TestBed.createComponent(PropostaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

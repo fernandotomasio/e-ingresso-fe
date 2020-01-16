@@ -5,10 +5,10 @@ import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ein-proposta-container',
-  templateUrl: './proposta-container.component.html',
-  styleUrls: ['./proposta-container.component.scss']
+  templateUrl: './proposta-edit.component.html',
+  styleUrls: ['./proposta-edit.component.scss']
 })
-export class PropostaContainerComponent implements OnInit {
+export class PropostaEditComponent implements OnInit {
 
   oid: number;
   @Output() action = new EventEmitter<any>();

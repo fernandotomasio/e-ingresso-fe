@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../../material-module';
-import { PropostaContainerComponent } from './proposta-container/proposta-container.component';
+import { PropostaEditComponent } from './proposta-edit/proposta-edit.component';
 
 
 
 @NgModule({
-  declarations: [PropostaContainerComponent],
+  declarations: [PropostaEditComponent],
   imports: [
     CommonModule, MaterialModule
   ],
-  exports: [PropostaContainerComponent]
+  exports: [PropostaEditComponent]
 })
 export class PropostaComponentsModule { }

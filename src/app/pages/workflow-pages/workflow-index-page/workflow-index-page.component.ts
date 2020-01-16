@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppService } from '../../../app.service';
 @Component({
   selector: 'ein-workflow-index-page',
   templateUrl: './workflow-index-page.component.html',
@@ -9,29 +10,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class WorkflowIndexPageComponent implements OnInit {
   eventoOid: number;
   indicacaoOid: number;
-
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
+  organizations: []
 
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private appService: AppService) {
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.eventoOid = params.eventoOid;
     });
+    this.organizations = this.appService.getOrganizations();
   }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

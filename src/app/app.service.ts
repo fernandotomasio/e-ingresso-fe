@@ -83,4 +83,7 @@ export class AppService {
   public getOrganization(): any {
     return this.organization;
   }
+  public getOrganizations(): any {
+    return this.organizations;
+  }
 }

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PropostaService } from '../../../core/proposta.service';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ein-proposta-container',
@@ -14,12 +15,29 @@ export class PropostaContainerComponent implements OnInit {
   @Output() saved = new EventEmitter<any>();
   @Output() canceled = new EventEmitter();
 
+  @Input() eventoOid: any;
+  organizacaoOid: number;
+
   data: any;
 
-  constructor(private service: PropostaService) { }
+  constructor(private service: PropostaService, private appService: AppService) { }
 
   ngOnInit() {
+    this.organizacaoOid = this.appService.getOrganization().oid;
     this.reset();
+    this.service.findAll({ eventoOids: this.eventoOid, organizacaoMilitarOids: this.organizacaoOid } )
+      .subscribe(response => {
+        if (response.filteredCount === 1) {
+          this.data = {
+            oid: response.data[0].oid,
+            statusProposta: response.data[0].status,
+            organizacaoMilitarOid: response.data[0].organizacaoMilitar.oid,
+            eventoOid: response.data[0].evento.oid,
+            itensProposta: response.data[0].itensProposta
+          };
+        }
+      });
+
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -63,8 +81,8 @@ export class PropostaContainerComponent implements OnInit {
   reset() {
     this.data = {
       oid: '',
-      organizacaoMilitarOid: 8001,
-      eventoOid: 2007,
+      organizacaoMilitarOid: this.organizacaoOid,
+      eventoOid: this.eventoOid,
       statusProposta: 'ABERTA',
       itensProposta: [
 

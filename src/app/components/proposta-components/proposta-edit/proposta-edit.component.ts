@@ -4,7 +4,7 @@ import { PropostaService } from '../../../core/proposta.service';
 import { AppService } from '../../../app.service';
 
 @Component({
-  selector: 'ein-proposta-container',
+  selector: 'ein-proposta-edit',
   templateUrl: './proposta-edit.component.html',
   styleUrls: ['./proposta-edit.component.scss']
 })
@@ -16,7 +16,7 @@ export class PropostaEditComponent implements OnInit {
   @Output() canceled = new EventEmitter();
 
   @Input() eventoOid: any;
-  organizacaoOid: number;
+  organizacaoOid: number = 8001;
 
   data: any;
 

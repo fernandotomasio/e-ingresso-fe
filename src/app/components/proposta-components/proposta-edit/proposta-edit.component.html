@@ -1,8 +1,7 @@
-<h1>proposta-container</h1>
 <mat-selection-list #contaner1 cdkDropList [cdkDropListData]="data.itensProposta"  (cdkDropListDropped)="drop($event)">
   <mat-list-option cdkDrag *ngFor="let item of data.itensProposta; let i = index"  (click)="raiseAction('detail', item.indicacao.oid)">
     {{ i + 1}} - {{ item.indicacao.pessoa.nome }}
   </mat-list-option>
 </mat-selection-list>
-  <button mat-flat-button (click)="submit()">Salvar</button>
+  <button mat-flat-button (click)="submit()" *ngIf="data.itensProposta.length > 0">Salvar</button>
   <button mat-flat-button *ngIf="data.oid" (click)="remove()">Remover</button>

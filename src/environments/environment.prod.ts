@@ -1,8 +1,6 @@
 export const environment = {
   production: true,
-  api_protocol: 'http',
-  api_host: 'localhost',
-  api_port: '8081',
+  api_endpoint: 'http://servicos.ccarj.intraer/e-ingresso-fe',
   compepe_url: 'http://api.servicos.homolog.ccarj.intraer/AcessoRWS',
   app_context: ''
 };

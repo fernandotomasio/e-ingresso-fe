@@ -41,7 +41,7 @@ export class AppService {
       return new Promise((resolve, reject) => {
         const headers = new HttpHeaders();
         headers.append('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8');
-        this.http.get(`${environment.api_protocol}://${environment.api_host}:${environment.api_port}/swagger-ui.html`,
+        this.http.get(`${environment.api_endpoint}/swagger-ui.html`,
           { headers, responseType: 'text' }).pipe(
           tap(response => this.cpf = '04274554724'),
           switchMap(response => this.loadResourceUser(this.cpf)),
@@ -66,15 +66,15 @@ export class AppService {
   }
   loadResourceUser(cpf) {
     return zip(
-      this.http.get(`${environment.api_protocol}://${environment.api_host}:${environment.api_port}/api/v1/pessoas/cpf/${cpf}`),
+      this.http.get(`${environment.api_endpoint}/api/v1/pessoas/cpf/${cpf}`),
       this.http.get(`${environment.compepe_url}/api/acesso/permissoesBy/${this.cpf}/13`)
     );
   }
   loadResourcesOrg(oid) {
     return zip(
-      this.http.get(`${environment.api_protocol}://${environment.api_host}:${environment.api_port}/api/v1/organizacoes_militares/${oid}`),
+      this.http.get(`${environment.api_endpoint}/api/v1/organizacoes_militares/${oid}`),
       this.http.get(
-        `${environment.api_protocol}://${environment.api_host}:${environment.api_port}/api/v1/organizacoes_militares/${oid}/diretamente_subordinadas`),
+        `${environment.api_endpoint}/api/v1/organizacoes_militares/${oid}/diretamente_subordinadas`),
     );
   }
   public getUser(): any {

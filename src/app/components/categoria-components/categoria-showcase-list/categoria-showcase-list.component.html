@@ -19,7 +19,7 @@
     </mat-card>
 
   </div>
-
+  <a mat-button (click)="message()">Message</a>
   <mat-paginator [length]="(dataList$ | async)?.filteredCount" [pageSize]="dataSearch.size"
                  [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
 

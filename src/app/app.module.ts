@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,7 @@ import {EventoComponentsModule} from './components/evento-components/evento-comp
 import {PessoaComponentsModule} from './components/pessoa-components/pessoa-components.module';
 import { LayoutModule } from './layout/layout.module';
 import { AppService } from './app.service';
+import { ApplicationErrorHandler } from './app-error-handler';
 
 export function getData(appService: AppService) {
   return () => appService.load();
@@ -33,6 +34,10 @@ export function getData(appService: AppService) {
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: getData, deps: [AppService], multi: true },
+    {
+      provide: ErrorHandler,
+      useClass: ApplicationErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })

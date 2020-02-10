@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CategoriaService } from '../../../core/categoria.service';
 import { PageEvent } from '@angular/material';
+import { NotificationService } from '../../../core/notification.service';
 
 @Component({
   selector: 'ein-categoria-showcase-list',
@@ -23,7 +24,7 @@ export class CategoriaShowcaseListComponent implements OnInit {
     orderBy: []
   }
 
-  constructor(private service: CategoriaService) { }
+  constructor(private service: CategoriaService, private notification: NotificationService) { }
 
   ngOnInit() {
     this.dataList$ = this.service.findAll(this.dataSearch);
@@ -52,5 +53,9 @@ export class CategoriaShowcaseListComponent implements OnInit {
   refresh() {
     this.dataList$ = this.service.findAll(this.dataSearch);
 
+  }
+
+  message() {
+    this.notification.openSnackBar('teste');
   }
 }

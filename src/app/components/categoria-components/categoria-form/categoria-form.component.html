@@ -1,12 +1,20 @@
-<form class="basic-form" [formGroup]="form" (submit)="onSubmit()">
+<form class="basic-form" [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
   <div fxLayout="row wrap">
+    <img [src]="imageSource" (click)="fileInput.click()"  style="border: 1px solid #eee" #image crossorigin>
+    <img [src]="imageDestination" (click)="fileInput.click()">
 
-    <mat-form-field>
+
+    <input hidden #fileInput type="file" id="file" (change)="selectImage($event)">
+
+
+
+    <button mat-raised-button type="button" color="primary" (click)="done()">Done</button>
+    <mat-form-field  class="basic-full-width">
       <input matInput type="text"
              placeholder="Título"  formControlName="titulo">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field  class="basic-full-width">
       <input matInput type="text"
              placeholder="Descrição"  formControlName="descricao">
     </mat-form-field>
@@ -14,5 +22,8 @@
     <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
     <button mat-raised-button type="submit" color="primary">Gravar</button>
   </div>
+
+
+
 </form>
 

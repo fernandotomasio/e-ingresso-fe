@@ -1,14 +1,7 @@
 <form class="basic-form" [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
   <div fxLayout="row wrap">
-    <img [src]="imageSource" (click)="fileInput.click()"  style="border: 1px solid #eee" #image crossorigin>
-    <img [src]="imageDestination" (click)="fileInput.click()">
+    <ein-input-image-upload formControlName="imageUrl"></ein-input-image-upload>
 
-
-    <input hidden #fileInput type="file" id="file" (change)="selectImage($event)">
-
-
-
-    <button mat-raised-button type="button" color="primary" (click)="done()">Done</button>
     <mat-form-field  class="basic-full-width">
       <input matInput type="text"
              placeholder="Título"  formControlName="titulo">

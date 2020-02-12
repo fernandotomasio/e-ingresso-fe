@@ -8,6 +8,7 @@ import { CategoriaShowcaseListComponent } from './categoria-showcase-list/catego
 import { CategoriaRemoveComponent, CategoriaRemoveDialogComponent } from './categoria-remove/categoria-remove.component';
 import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   entryComponents: [
     CategoriaRemoveDialogComponent

@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { switchMap, tap } from 'rxjs/operators';
 import { zip } from 'rxjs';
+import { PERMISSOES } from './data-mock';
 
 @Injectable({
   providedIn: 'root'
@@ -47,7 +48,7 @@ export class AppService {
           switchMap(response => this.loadResourceUser(this.cpf)),
           tap(response => {
             this.user = response[0]
-            this.permissions = response[1];
+            this.permissions = PERMISSOES;
           }),
           switchMap(response => this.loadResourcesOrg(8001)),
           tap(response => {
@@ -66,8 +67,7 @@ export class AppService {
   }
   loadResourceUser(cpf) {
     return zip(
-      this.http.get(`${environment.api_endpoint}/api/v1/pessoas/cpf/${cpf}`),
-      this.http.get(`${environment.compepe_url}/api/acesso/permissoesBy/${this.cpf}/13`)
+      this.http.get(`${environment.api_endpoint}/api/v1/pessoas/cpf/${cpf}`)
     );
   }
   loadResourcesOrg(oid) {

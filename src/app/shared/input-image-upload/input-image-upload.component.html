@@ -1,0 +1,9 @@
+<img [src]="destinationImage" [hidden]="edit" (click)="fileInput.click()" style="height: 200px; width: 300px">
+<div class="img-container"   style="height: 200px; width: 300px" >
+  <img [src]="sourceImage" [hidden]="!edit" style="border: 1px solid #eee" #image crossorigin (load)="openCropper()">
+</div>
+
+
+<input hidden #fileInput type="file" id="file" (change)="selectImage($event)">
+
+<button mat-raised-button type="button" color="primary" (click)="done()" *ngIf="edit">Done</button>

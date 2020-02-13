@@ -1,12 +1,13 @@
-<form class="basic-form" [formGroup]="form" (submit)="onSubmit()">
+<form class="basic-form" [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
   <div fxLayout="row wrap">
+    <ein-input-image-upload formControlName="imageUrl"></ein-input-image-upload>
 
-    <mat-form-field>
+    <mat-form-field  class="basic-full-width">
       <input matInput type="text"
              placeholder="Título"  formControlName="titulo">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field  class="basic-full-width">
       <input matInput type="text"
              placeholder="Descrição"  formControlName="descricao">
     </mat-form-field>
@@ -14,5 +15,8 @@
     <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
     <button mat-raised-button type="submit" color="primary">Gravar</button>
   </div>
+
+
+
 </form>
 

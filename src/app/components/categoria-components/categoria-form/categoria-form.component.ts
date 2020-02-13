@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { CategoriaService } from '../../../core/categoria.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './categoria-form.component.html',
   styleUrls: ['./categoria-form.component.scss']
 })
-export class CategoriaFormComponent implements OnInit {
+export class CategoriaFormComponent implements OnInit  {
 
   @Input() oid: number;
   form: FormGroup;
@@ -22,6 +22,7 @@ export class CategoriaFormComponent implements OnInit {
       oid: this.fb.control(''),
       titulo: this.fb.control('', Validators.required),
       descricao: this.fb.control(''),
+      imageUrl: this.fb.control('', Validators.required)
     });
 
     if (this.oid) {
@@ -31,6 +32,7 @@ export class CategoriaFormComponent implements OnInit {
             oid: data.oid,
             titulo: data.titulo,
             descricao: data.descricao,
+            imageUrl: data.imageUrl
           }));
     }
   }

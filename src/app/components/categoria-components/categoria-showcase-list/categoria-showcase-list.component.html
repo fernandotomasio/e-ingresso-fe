@@ -3,7 +3,7 @@
   <div class="categorias-store-list">
 
     <mat-card class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">
-      <img [src]="'https://picsum.photos/300/200?' + item.oid">
+      <img [src]="item.imageUrl" style="height: 200px; width: 300px">
       <mat-card-content>
         <mat-card-title>{{ item.titulo}}</mat-card-title>
         <mat-card-subtitle> subtitulo </mat-card-subtitle>

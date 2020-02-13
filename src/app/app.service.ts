@@ -34,6 +34,7 @@ export class AppService {
             this.organization = response[0];
             this.organizations = response[1];
           }),
+          
         ).subscribe(response => {
           resolve();
         });

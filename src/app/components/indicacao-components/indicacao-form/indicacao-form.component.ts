@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InscricaoService } from '../../../core/inscricao.service';
 import { IndicacaoService } from '../../../core/indicacao.service';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ein-indicacao-form',
@@ -19,6 +20,7 @@ export class IndicacaoFormComponent implements OnInit {
 
   constructor(private service: IndicacaoService,
               private inscricaoService: InscricaoService,
+              private appService: AppService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class IndicacaoFormComponent implements OnInit {
       email: this.fb.control('', [Validators.required, Validators.maxLength(255), Validators.email]),
       telefone: this.fb.control('', [Validators.required, Validators.maxLength(255)]),
       justificativa: this.fb.control(''),
+      organizacaoSolicitanteOid: this.fb.control(this.appService.getOrganization().oid),
       observacoes: this.fb.control(''),
     });
 
@@ -38,6 +41,7 @@ export class IndicacaoFormComponent implements OnInit {
             this.form.patchValue({
               pessoaOid: data.pessoa.oid,
               eventoOid: data.evento.oid,
+              organizacaoSolicitanteOid: data.organizacaoSolicitante.oid,
               ...data
             });
           }

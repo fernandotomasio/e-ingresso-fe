@@ -7,7 +7,7 @@
   <div class="example-container">
 
     <mat-tab-group>
-      <mat-tab label="Minhas Indicações">
+      <mat-tab [label]="organization.sigla">
         <ein-indicacao-repository [eventoOid]="eventoOid"  [organizacaoOid]="organization.oid" (action)="onAction($event)"></ein-indicacao-repository>
       </mat-tab>
       <mat-tab   *ngFor="let item of organizations" [label]="item.sigla">

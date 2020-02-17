@@ -65,17 +65,12 @@ export class PropostaEditComponent implements OnInit {
         this.data = {
           oid: response.oid,
           statusProposta: response.status,
-          organizacaoMilitarOid: response.organizacaoMilitar.oid,
+          organizacaoMilitarOid: response.organizacao.oid,
           eventoOid: response.evento.oid,
           itensProposta: response.itensProposta
         };
       }
       this.saved.emit(response);
-    });
-  }
-  remove() {
-    this.service.remove(this.data.oid).subscribe(response => {
-      this.reset();
     });
   }
   reset() {

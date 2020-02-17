@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { EventoService } from '../../../core/evento.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriaService } from '../../../core/categoria.service';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ein-evento-form',
@@ -28,6 +29,7 @@ export class EventoFormComponent implements OnInit {
 
   constructor(private service: EventoService,
               private categoriaService: CategoriaService,
+              private appService: AppService,
               private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -62,6 +64,8 @@ export class EventoFormComponent implements OnInit {
 
       observacoes: this.fb.control(''),
 
+      organizacaoGestoraOid: this.fb.control(this.appService.getOrganization().oid)
+
     });
 
     if (this.oid) {
@@ -69,6 +73,7 @@ export class EventoFormComponent implements OnInit {
         .subscribe(data => {
             this.form.patchValue({
               categoriaOid: data.categoria.oid,
+              organizacaoGestoraOid: data.organizacaoGestora.oid,
               ...data
             });
         }

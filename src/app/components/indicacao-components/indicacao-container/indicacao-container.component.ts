@@ -10,6 +10,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 export class IndicacaoContainerComponent implements OnInit {
 
   @Input() eventoOid: number;
+  @Input() organizacaoOid: any;
   @Output() action = new EventEmitter<any>();
   dataList: any;
 
@@ -20,7 +21,7 @@ export class IndicacaoContainerComponent implements OnInit {
   }
 
   loadData() {
-    this.service.findAll({ eventoOids: [ this.eventoOid ] } ).subscribe(response => {
+    this.service.findAll({ eventoOids: [ this.eventoOid ], organizacaoSolicitanteOids: [ this.organizacaoOid ] } ).subscribe(response => {
         this.dataList = response.data;
       }
     );

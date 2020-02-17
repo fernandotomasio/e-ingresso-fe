@@ -1,21 +1,24 @@
 <h1>Evento OID: {{ eventoOid }}</h1>
 <div cdkDropListGroup>
   <div class="example-container">
-    <ein-proposta-edit [eventoOid]="eventoOid" (action)="onAction($event)"></ein-proposta-edit>
+    <ein-proposta-edit [eventoOid]="eventoOid" [organizacaoOid]="organization.oid" (action)="onAction($event)"></ein-proposta-edit>
   </div>
 
   <div class="example-container">
 
     <mat-tab-group>
       <mat-tab label="Minhas Indicações">
-        <ein-indicacao-repository [eventoOid]="eventoOid" (action)="onAction($event)"></ein-indicacao-repository>
+        <ein-indicacao-repository [eventoOid]="eventoOid"  [organizacaoOid]="organization.oid" (action)="onAction($event)"></ein-indicacao-repository>
       </mat-tab>
-      <mat-tab   *ngFor="let item of organizations" [label]="item.nome">
+      <mat-tab   *ngFor="let item of organizations" [label]="item.sigla">
         <ein-proposta-container [eventoOid]="eventoOid"  [organizacaoOid]="item.oid" (action)="onAction($event)"></ein-proposta-container>
       </mat-tab>
+      <ng-container *ngIf="evento.organizacaoGestora.oid === organization.oid">
+        <mat-tab  *ngFor="let item of odsas" [label]="item.sigla">
+          <ein-proposta-container [eventoOid]="eventoOid"  [organizacaoOid]="item.oid" (action)="onAction($event)"></ein-proposta-container>
+        </mat-tab>
+      </ng-container>
     </mat-tab-group>
-
-
   </div>
 
   <div class="example-container">

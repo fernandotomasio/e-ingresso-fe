@@ -1,5 +1,5 @@
 <mat-selection-list #contaner1 cdkDropList [cdkDropListData]="dataList" (cdkDropListDropped)="drop($event)">
     <mat-list-option cdkDrag *ngFor="let item of dataList; let i = index" (click)="raiseAction('detail', item.oid)">
-      {{ i + 1}} - {{ item.pessoa.nome }}
+      {{ i + 1}} - {{ item.pessoa.nome }} ({{ item.pessoa.organizacao}})
   </mat-list-option>
 </mat-selection-list>

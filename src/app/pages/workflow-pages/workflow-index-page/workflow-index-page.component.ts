@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app.service';
+import { EventoService } from '../../../core/evento.service';
 @Component({
   selector: 'ein-workflow-index-page',
   templateUrl: './workflow-index-page.component.html',
@@ -9,18 +10,29 @@ import { AppService } from '../../../app.service';
 })
 export class WorkflowIndexPageComponent implements OnInit {
   eventoOid: number;
+  evento: any;
   indicacaoOid: number;
+  organization: any
   organizations: []
+  odsas: []
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private appService: AppService) {
+              private appService: AppService,
+              private eventoService: EventoService) {
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.eventoOid = params.eventoOid;
     });
     this.organizations = this.appService.getOrganizations();
+    this.organization = this.appService.getOrganization();
+    this.odsas = this.appService.getOdsas().data.filter(item => item.oid !== this.organization.oid);
+    this.eventoService.find(this.eventoOid).subscribe(response => {
+      this.evento = response;
+      console.log(this.evento);
+    });
+
   }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IndicacaoService } from '../../../core/indicacao.service';
 import { PageEvent } from '@angular/material';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'ein-indicacao-list',
@@ -23,7 +24,8 @@ export class IndicacaoListComponent implements OnInit {
 
 
 
-  constructor(private service: IndicacaoService) { }
+  constructor(private service: IndicacaoService,
+              private appService: AppService) { }
 
   ngOnInit() {
     this.refresh();
@@ -47,7 +49,8 @@ export class IndicacaoListComponent implements OnInit {
   }
 
   refresh() {
-    this.service.findAll({ eventoOids: [ this.eventoOid ], ...this.dataSearch } ).subscribe(response => {
+    this.service.findAll({ eventoOids: [ this.eventoOid ], organizacaoSolicitanteOids: this.appService.getOrganization().oid,
+      ...this.dataSearch } ).subscribe(response => {
       this.dataList = response.data;
       this.filteredCount = response.filteredCount;
     });

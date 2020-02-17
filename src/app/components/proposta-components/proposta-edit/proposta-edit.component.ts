@@ -16,22 +16,22 @@ export class PropostaEditComponent implements OnInit {
   @Output() canceled = new EventEmitter();
 
   @Input() eventoOid: any;
-  organizacaoOid: number = 8001;
+  @Input() organizacaoOid: any
 
   data: any;
 
   constructor(private service: PropostaService, private appService: AppService) { }
 
   ngOnInit() {
-    this.organizacaoOid = this.appService.getOrganization().oid;
     this.reset();
     this.service.findAll({ eventoOids: this.eventoOid, organizacaoMilitarOids: this.organizacaoOid } )
       .subscribe(response => {
+        console.log(response)
         if (response.filteredCount === 1) {
           this.data = {
             oid: response.data[0].oid,
             statusProposta: response.data[0].status,
-            organizacaoMilitarOid: response.data[0].organizacaoMilitar.oid,
+            organizacaoMilitarOid: response.data[0].organizacao.oid,
             eventoOid: response.data[0].evento.oid,
             itensProposta: response.data[0].itensProposta
           };

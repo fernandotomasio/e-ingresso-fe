@@ -94,4 +94,7 @@ export class AppService {
   public getOrganizations(): any {
     return this.organizations;
   }
+  public getOdsas(): any {
+    return this.odsas;
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { switchMap, tap } from 'rxjs/operators';
 import { zip } from 'rxjs';
 import { PERMISSOES } from './data-mock';
@@ -15,6 +15,8 @@ export class AppService {
   private permissions = null;
   private organization: any = null;
   private organizations: any = null;
+  private odsas: any = null;
+
   constructor(private http: HttpClient) { }
 
   load() {
@@ -29,12 +31,13 @@ export class AppService {
             this.user = response[0]
             this.permissions = response[1];
           }),
-          switchMap(response => this.loadResourcesOrg(8001)),
+          switchMap(response => this.loadResourcesOrg(this.user.organizacaoOid)),
           tap(response => {
             this.organization = response[0];
             this.organizations = response[1];
+            this.odsas = response[2];
           }),
-          
+
         ).subscribe(response => {
           resolve();
         });
@@ -51,16 +54,18 @@ export class AppService {
             this.user = response[0]
             this.permissions = PERMISSOES;
           }),
-          switchMap(response => this.loadResourcesOrg(8001)),
+          switchMap(response => this.loadResourcesOrg(this.user.organizacaoOid)),
           tap(response => {
             this.organization = response[0];
             this.organizations = response[1];
+            this.odsas = response[2];
           }),
         ).subscribe(response => {
           console.log('organization', this.organization);
           console.log('organizations', this.organizations);
           console.log('user', this.user);
           console.log('permissions', this.permissions)
+          console.log('odsas', this.odsas)
           resolve();
         });
       });
@@ -72,10 +77,12 @@ export class AppService {
     );
   }
   loadResourcesOrg(oid) {
+
     return zip(
       this.http.get(`${environment.api_endpoint}/api/v1/organizacoes_militares/${oid}`),
       this.http.get(
         `${environment.api_endpoint}/api/v1/organizacoes_militares/${oid}/diretamente_subordinadas`),
+      this.http.get(`${environment.api_endpoint}/api/v1/organizacoes_militares?status_comando=S`),
     );
   }
   public getUser(): any {

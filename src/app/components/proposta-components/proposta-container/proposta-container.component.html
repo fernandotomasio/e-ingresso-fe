@@ -1,6 +1,6 @@
 <mat-selection-list #contaner1 cdkDropList [cdkDropListData]="dataList" (cdkDropListDropped)="drop($event)">
   <mat-list-option cdkDrag *ngFor="let item of dataList; let i = index" (click)="raiseAction('detail', item.oid)">
-    <mat-icon matListIcon><ein-avatar [saram]="item.pessoa.saram"></ein-avatar></mat-icon>
+    <mat-icon matListIcon><ein-avatar-mini [saram]="item.pessoa.saram"></ein-avatar-mini></mat-icon>
     <div mat-line>
       {{ i + 1}} - {{ item.pessoa.nome }} ({{ item.pessoa.organizacao}})
     </div>

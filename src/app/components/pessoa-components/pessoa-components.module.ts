@@ -9,6 +9,7 @@ import { MaterialModule } from '../../material-module';
 import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
 import {PessoaRemoveComponent, PessoaRemoveDialogComponent} from './pessoa-remove/pessoa-remove.component';
 import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -16,7 +17,7 @@ import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
   declarations: [PessoaListComponent, PessoaSearchComponent, PessoaSelectComponent, PessoaInputComponent,
     PessoaDialogComponent, PessoaFormComponent, PessoaRemoveComponent, PessoaDetailComponent, PessoaRemoveDialogComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, MaterialModule
+    CommonModule, ReactiveFormsModule, MaterialModule, SharedModule
   ],
   exports: [PessoaListComponent, PessoaSelectComponent, PessoaInputComponent,
     PessoaFormComponent, PessoaDetailComponent],

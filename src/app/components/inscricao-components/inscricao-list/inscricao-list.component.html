@@ -2,7 +2,7 @@
 <mat-card class="example-card"  *ngFor="let item of dataList">
   <mat-card-header>
     <div mat-card-avatar>
-    <img [src]="'http://localhost:8081/api/v1/pessoas/' + item.pessoa.saram +'/thumbnail'">
+      <ein-avatar [saram]="item.pessoa.saram"></ein-avatar>
     </div>
     <mat-card-title>{{ item.pessoa.nome }}</mat-card-title>
     <mat-card-subtitle>{{ item.pessoa.email }}</mat-card-subtitle>

@@ -4,6 +4,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MaterialModule } from '../material-module';
 import { RouterModule } from '@angular/router';
 import { LoggedUserComponent } from './logged-user/logged-user.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LoggedUserComponent } from './logged-user/logged-user.component';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ]
 })
 export class LayoutModule { }

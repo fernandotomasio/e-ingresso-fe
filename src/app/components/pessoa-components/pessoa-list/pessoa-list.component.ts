@@ -16,7 +16,7 @@ export class PessoaListComponent implements OnInit {
 
   filteredCount: number;
 
-  displayedColumns: string[] = ['oid', 'cpf', 'nome', 'saram', 'controls'];
+  displayedColumns: string[] = ['avatar', 'oid', 'cpf', 'nome', 'saram', 'controls'];
 
   paginateOptions = [];
 

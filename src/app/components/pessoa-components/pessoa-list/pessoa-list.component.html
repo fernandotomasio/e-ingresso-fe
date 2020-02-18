@@ -8,6 +8,13 @@
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
+
+  <!-- Avatar Column -->
+  <ng-container matColumnDef="avatar">
+    <th mat-header-cell *matHeaderCellDef> </th>
+    <td mat-cell *matCellDef="let item"> <ein-avatar [saram]="item.saram"></ein-avatar> </td>
+  </ng-container>
+
   <!-- Position Column -->
   <ng-container matColumnDef="oid">
     <th mat-header-cell *matHeaderCellDef> No. </th>

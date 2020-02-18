@@ -7,13 +7,15 @@ import { InscricaoListComponent } from './inscricao-list/inscricao-list.componen
 import { InscricaoSearchComponent } from './inscricao-search/inscricao-search.component';
 import { PessoaComponentsModule } from '../pessoa-components/pessoa-components.module';
 import { InscricaoRemoveComponent, InscricaoRemoveDialogComponent } from './inscricao-remove/inscricao-remove.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [InscricaoFormComponent, InscricaoListComponent, InscricaoSearchComponent,
     InscricaoRemoveComponent, InscricaoRemoveDialogComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, MaterialModule, PessoaComponentsModule
+    CommonModule, ReactiveFormsModule, MaterialModule,
+    PessoaComponentsModule, SharedModule
   ],
   exports: [
     InscricaoFormComponent, InscricaoListComponent

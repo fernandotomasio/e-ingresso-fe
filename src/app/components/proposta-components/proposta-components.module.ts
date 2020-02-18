@@ -4,6 +4,7 @@ import { MaterialModule } from '../../material-module';
 import { PropostaEditComponent } from './proposta-edit/proposta-edit.component';
 import { PropostaContainerComponent } from './proposta-container/proposta-container.component';
 import { PropostaRemoveComponent, PropostaRemoveDialogComponent } from './proposta-remove/proposta-remove.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -11,7 +12,7 @@ import { PropostaRemoveComponent, PropostaRemoveDialogComponent } from './propos
   declarations: [PropostaEditComponent, PropostaContainerComponent, PropostaRemoveComponent,
     PropostaRemoveComponent, PropostaRemoveDialogComponent],
   imports: [
-    CommonModule, MaterialModule
+    CommonModule, MaterialModule, SharedModule
   ],
   exports: [PropostaEditComponent, PropostaContainerComponent],
   entryComponents: [

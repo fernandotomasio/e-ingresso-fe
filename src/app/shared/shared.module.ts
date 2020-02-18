@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InputImageUploadComponent } from './input-image-upload/input-image-upload.component';
+import { AvatarComponent } from './avatar/avatar.component';
 
 
 
 @NgModule({
-  declarations: [InputImageUploadComponent],
+  declarations: [InputImageUploadComponent, AvatarComponent],
   exports: [
-    InputImageUploadComponent,
+    InputImageUploadComponent, AvatarComponent
   ],
   imports: [
     CommonModule,

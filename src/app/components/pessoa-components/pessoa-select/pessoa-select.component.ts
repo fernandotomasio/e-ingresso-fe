@@ -15,7 +15,7 @@ export class PessoaSelectComponent implements OnInit {
 
   dataList: any;
 
-  displayedColumns: string[] = ['control', 'nome', 'cpf', 'email'];
+  displayedColumns: string[] = ['control', 'avatar', 'nome', 'cpf', 'email'];
 
   paginateOptions = []
 

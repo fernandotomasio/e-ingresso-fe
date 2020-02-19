@@ -9,6 +9,7 @@ import { CategoriaDetailComponent } from './categoria-detail/categoria-detail.co
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import {DemoMaterialModule} from '../../demo-material-module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {DemoMaterialModule} from '../../demo-material-module';
     CommonModule,
     DemoMaterialModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     SharedModule
   ],
   entryComponents: [

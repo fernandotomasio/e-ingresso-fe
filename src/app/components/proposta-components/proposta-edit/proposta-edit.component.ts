@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PropostaService } from '../../../core/proposta.service';
 import { AppService } from '../../../app.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-proposta-edit',
@@ -90,5 +91,9 @@ export class PropostaEditComponent implements OnInit {
 
       ]
     };
+  }
+
+  getUrl(saram: any) {
+    return `${environment.api_endpoint}/api/v1/pessoas/${saram}/thumbnail`;
   }
 }

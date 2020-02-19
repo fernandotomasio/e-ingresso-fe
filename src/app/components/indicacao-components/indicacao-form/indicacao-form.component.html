@@ -1,4 +1,6 @@
-<form [formGroup]="form" class="example-form">
+<form class="basic-form" [formGroup]="form">
+  <div fxLayout="row wrap">
+
   <app-pessoa-input formControlName="pessoaOid"></app-pessoa-input>
 
   <mat-form-field class="example-full-width">
@@ -27,4 +29,6 @@
       </textarea>
   </mat-form-field>
   <button mat-button (click)="submit()">Enviar</button>
+  </div>
 </form>
+

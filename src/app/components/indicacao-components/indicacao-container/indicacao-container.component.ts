@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IndicacaoService } from '../../../core/indicacao.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-indicacao-repository',
@@ -46,5 +47,7 @@ export class IndicacaoContainerComponent implements OnInit {
         event.currentIndex);
     }
   }
-
+  getUrl(saram: any) {
+    return `${environment.api_endpoint}/api/v1/pessoas/${saram}/thumbnail`;
+  }
 }

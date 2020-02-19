@@ -1,5 +1,5 @@
-<form [formGroup]="form" class="example-form">
-
+<form class="basic-form" [formGroup]="form">
+  <div fxLayout="row wrap">
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Email" formControlName="email">
   </mat-form-field>
@@ -26,4 +26,5 @@
       </textarea>
   </mat-form-field>
   <button mat-button (click)="submit()">Enviar</button>
+  </div>
 </form>

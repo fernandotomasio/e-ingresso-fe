@@ -10,6 +10,7 @@ import { IndicacaoContainerComponent } from './indicacao-container/indicacao-con
 import { IndicacaoDetailComponent } from './indicacao-detail/indicacao-detail.component';
 import {DemoMaterialModule} from '../../demo-material-module';
 import { SharedModule } from '../../shared/shared.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -17,7 +18,8 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [IndicacaoListComponent, IndicacaoSearchComponent, IndicacaoFormComponent,
     IndicacaoRemoveComponent, IndicacaoRemoveDialogComponent, IndicacaoContainerComponent, IndicacaoDetailComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, DemoMaterialModule, PessoaComponentsModule, SharedModule
+    CommonModule, ReactiveFormsModule, DemoMaterialModule, PessoaComponentsModule, SharedModule,
+    FlexLayoutModule
   ],
   exports: [IndicacaoListComponent, IndicacaoFormComponent,
     IndicacaoContainerComponent, IndicacaoDetailComponent],

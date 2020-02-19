@@ -6,12 +6,14 @@ import { WorkflowIndexPageComponent } from './workflow-index-page/workflow-index
 import { IndicacaoComponentsModule } from '../../components/indicacao-components/indicacao-components.module';
 import { PropostaComponentsModule } from '../../components/proposta-components/proposta-components.module';
 import {DemoMaterialModule} from '../../demo-material-module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [WorkflowIndexPageComponent],
   imports: [
+    FlexLayoutModule,
     CommonModule, DemoMaterialModule, IndicacaoComponentsModule,
     PropostaComponentsModule,
     RouterModule.forChild(WorkflowPagesRoutes)

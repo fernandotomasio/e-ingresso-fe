@@ -1,9 +1,8 @@
-<mat-selection-list #contaner1 cdkDropList [cdkDropListData]="data.itensProposta"  (cdkDropListDropped)="drop($event)">
-  <mat-list-option cdkDrag *ngFor="let item of data.itensProposta; let i = index"  (click)="raiseAction('detail', item.indicacao.oid)">
-    <mat-icon mat-list-icon><app-avatar-mini [saram]="item.indicacao.pessoa.saram"></app-avatar-mini></mat-icon>
-    <p mat-line>
-      {{ i + 1}} - {{ item.indicacao.pessoa.nome }} ({{ item.indicacao.organizacaoSolicitante.sigla}})
-    </p>
+<mat-selection-list #contaner1 cdkDropList [cdkDropListData]="data.itensProposta" (cdkDropListDropped)="drop($event)">
+  <mat-list-option cdkDrag *ngFor="let item of data.itensProposta; let i = index" (click)="raiseAction('detail', item.indicacao.oid)">
+    <img mat-list-avatar [src]="getUrl(item.indicacao.pessoa.saram)" alt="Image of">
+    <h3 matLine>{{ i + 1}} - {{ item.indicacao.pessoa.nome }} ({{ item.indicacao.pessoa.organizacao}})</h3>
+    <p matLine class="text-muted">Indicado por {{ item.indicacao.organizacaoSolicitante.sigla}}</p>
   </mat-list-option>
 </mat-selection-list>
   <button mat-flat-button (click)="submit()" *ngIf="data.itensProposta.length > 0">Salvar</button>

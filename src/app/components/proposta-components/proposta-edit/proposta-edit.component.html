@@ -7,5 +7,5 @@
   </mat-list-option>
 </mat-selection-list>
   <button mat-flat-button (click)="submit()" *ngIf="data.itensProposta.length > 0">Salvar</button>
-  <app-proposta-remove *ngIf="data.oid" [oid]="data.oid"  (deleted)="reset()">REMOVER</app-proposta-remove>
-
+  <app-proposta-remove *ngIf="data.oid" [oid]="data.oid"  (deleted)="reset()">Remover</app-proposta-remove>
+  <button mat-flat-button *ngIf="data.oid" (click)="send()">Enviar</button>

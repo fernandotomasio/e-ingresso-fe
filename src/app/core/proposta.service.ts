@@ -22,6 +22,9 @@ export class PropostaService {
   find(oid: number): Observable<any> {
     return this.http.get(`${environment.api_endpoint}/api/v1/propostas/${oid}`);
   }
+  send(oid: number): Observable<any> {
+    return this.http.patch(`${environment.api_endpoint}/api/v1/propostas/${oid}`, {});
+  }
   save(data: any): Observable<any> {
     return !data.oid
       ? this.http.post<any>(`${environment.api_endpoint}/api/v1/propostas`, data)

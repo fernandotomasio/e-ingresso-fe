@@ -73,6 +73,13 @@ export class PropostaEditComponent implements OnInit {
       this.saved.emit(response);
     });
   }
+
+  send() {
+    this.service.send(this.data.oid).subscribe(response => {
+
+    });
+  }
+
   reset() {
     this.data = {
       oid: '',

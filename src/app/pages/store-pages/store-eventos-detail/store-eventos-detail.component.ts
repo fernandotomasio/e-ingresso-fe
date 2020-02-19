@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventoService } from '../../../core/evento.service';
 
 @Component({
-  selector: 'ein-store-eventos-detail',
+  selector: 'app-store-eventos-detail',
   templateUrl: './store-eventos-detail.component.html',
   styleUrls: ['./store-eventos-detail.component.scss']
 })

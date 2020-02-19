@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { PageEvent } from '@angular/material';
 
 @Component({
-  selector: 'ein-inscricao-list',
+  selector: 'app-inscricao-list',
   templateUrl: './inscricao-list.component.html',
   styleUrls: ['./inscricao-list.component.scss']
 })

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { EventoService } from '../../../core/evento.service';
 
 @Component({
-  selector: 'ein-evento-detail',
+  selector: 'app-evento-detail',
   templateUrl: './evento-detail.component.html',
   styleUrls: ['./evento-detail.component.scss']
 })

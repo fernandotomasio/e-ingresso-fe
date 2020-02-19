@@ -5,7 +5,7 @@ import { IndicacaoService } from '../../../core/indicacao.service';
 import { AppService } from '../../../app.service';
 
 @Component({
-  selector: 'ein-indicacao-form',
+  selector: 'app-indicacao-form',
   templateUrl: './indicacao-form.component.html',
   styleUrls: ['./indicacao-form.component.scss']
 })

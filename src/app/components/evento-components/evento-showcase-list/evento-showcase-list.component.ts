@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PageEvent } from '@angular/material';
 
 @Component({
-  selector: 'ein-evento-showcase-list',
+  selector: 'app-evento-showcase-list',
   templateUrl: './evento-showcase-list.component.html',
   styleUrls: ['./evento-showcase-list.component.scss']
 })

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventoListComponent } from './evento-list/evento-list.component';
 import { EventoFormComponent } from './evento-form/evento-form.component';
-import {MaterialModule} from '../../material-module';
 import { EventoSearchComponent } from './evento-search/evento-search.component';
 import { EventoShowcaseComponent } from './evento-showcase/evento-showcase.component';
 import { InscricaoComponentsModule } from '../inscricao-components/inscricao-components.module';
@@ -13,6 +12,7 @@ import { EventoRemoveComponent, EventoRemoveDialogComponent } from './evento-rem
 import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material';
+import {DemoMaterialModule} from '../../demo-material-module';
 // import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 
 
@@ -29,7 +29,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material'
   ],
   imports: [
     CommonModule, InscricaoComponentsModule, IndicacaoComponentsModule, ReservaVagaModule,
-    MaterialModule, ReactiveFormsModule
+    DemoMaterialModule, ReactiveFormsModule
   ],
   entryComponents: [
     EventoRemoveDialogComponent

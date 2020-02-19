@@ -3,7 +3,7 @@ import {CategoriaService} from '../../../core/categoria.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'ein-pessoa-index-page',
+  selector: 'app-pessoa-index-page',
   templateUrl: './pessoa-index-page.component.html',
   styleUrls: ['./pessoa-index-page.component.scss']
 })

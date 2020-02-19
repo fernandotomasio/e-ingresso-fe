@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventoService } from '../../../core/evento.service';
 
 @Component({
-  selector: 'ein-evento-index-page',
+  selector: 'app-evento-index-page',
   templateUrl: './evento-index-page.component.html',
   styleUrls: ['./evento-index-page.component.scss']
 })

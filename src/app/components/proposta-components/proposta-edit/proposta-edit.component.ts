@@ -4,7 +4,7 @@ import { PropostaService } from '../../../core/proposta.service';
 import { AppService } from '../../../app.service';
 
 @Component({
-  selector: 'ein-proposta-edit',
+  selector: 'app-proposta-edit',
   templateUrl: './proposta-edit.component.html',
   styleUrls: ['./proposta-edit.component.scss']
 })

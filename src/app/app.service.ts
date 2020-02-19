@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
+import { environment } from '../../../../e-ingresso-fe/src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { switchMap, tap } from 'rxjs/operators';
 import { zip } from 'rxjs';

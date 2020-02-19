@@ -3,7 +3,7 @@ import { IndicacaoService } from '../../../core/indicacao.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
-  selector: 'ein-indicacao-repository',
+  selector: 'app-indicacao-repository',
   templateUrl: './indicacao-container.component.html',
   styleUrls: ['./indicacao-container.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ein-favoritos-index-page',
+  selector: 'app-favoritos-index-page',
   templateUrl: './favoritos-index-page.component.html',
   styleUrls: ['./favoritos-index-page.component.scss']
 })

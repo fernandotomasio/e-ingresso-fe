@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'ein-evento-edit-page',
+  selector: 'app-evento-edit-page',
   templateUrl: './evento-edit-page.component.html',
   styleUrls: ['./evento-edit-page.component.scss']
 })

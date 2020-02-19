@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {PessoaService} from '../../../core/pessoa.service';
 
 @Component({
-  selector: 'ein-pessoa-detail',
+  selector: 'app-pessoa-detail',
   templateUrl: './pessoa-detail.component.html',
   styleUrls: ['./pessoa-detail.component.scss']
 })

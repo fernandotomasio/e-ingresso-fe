@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PessoaService} from '../../../core/pessoa.service';
 
 @Component({
-  selector: 'ein-pessoa-form',
+  selector: 'app-pessoa-form',
   templateUrl: './pessoa-form.component.html',
   styleUrls: ['./pessoa-form.component.scss']
 })

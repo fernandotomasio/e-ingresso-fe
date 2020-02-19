@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'ein-store-categorias-page',
+  selector: 'app-store-categorias-page',
   templateUrl: './store-categorias-page.component.html',
   styleUrls: ['./store-categorias-page.component.scss']
 })

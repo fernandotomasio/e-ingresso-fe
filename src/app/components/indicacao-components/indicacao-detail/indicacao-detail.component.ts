@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { IndicacaoService } from '../../../core/indicacao.service';
 
 @Component({
-  selector: 'ein-indicacao-detail',
+  selector: 'app-indicacao-detail',
   templateUrl: './indicacao-detail.component.html',
   styleUrls: ['./indicacao-detail.component.scss']
 })

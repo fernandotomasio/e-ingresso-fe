@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { CategoriaService } from '../../../core/categoria.service';
 
 @Component({
-  selector: 'ein-evento-search',
+  selector: 'app-evento-search',
   templateUrl: './evento-search.component.html',
   styleUrls: ['./evento-search.component.scss']
 })

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app.service';
 import { EventoService } from '../../../core/evento.service';
 @Component({
-  selector: 'ein-workflow-index-page',
+  selector: 'app-workflow-index-page',
   templateUrl: './workflow-index-page.component.html',
   styleUrls: ['./workflow-index-page.component.scss']
 })

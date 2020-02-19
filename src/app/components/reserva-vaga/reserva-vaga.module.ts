@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReservaVagaListComponent } from './reserva-vaga-list/reserva-vaga-list.component';
-import { MaterialModule } from '../../material-module';
+import {DemoMaterialModule} from '../../demo-material-module';
 
 @NgModule({
   declarations: [ReservaVagaListComponent],
   imports: [
-    CommonModule, MaterialModule
+    CommonModule, DemoMaterialModule
   ],
   exports: [
     ReservaVagaListComponent

@@ -1,5 +1,5 @@
 <div class="container">
-    <ein-categoria-search (changed)="onSearchChange($event)"></ein-categoria-search>
+    <app-categoria-search (changed)="onSearchChange($event)"></app-categoria-search>
   <div class="categorias-store-list">
 
     <mat-card class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">

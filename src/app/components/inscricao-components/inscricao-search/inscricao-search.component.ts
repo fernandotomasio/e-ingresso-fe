@@ -4,7 +4,7 @@ import { IndicacaoService } from '../../../core/indicacao.service';
 import { InscricaoService } from '../../../core/inscricao.service';
 
 @Component({
-  selector: 'ein-inscricao-search',
+  selector: 'app-inscricao-search',
   templateUrl: './inscricao-search.component.html',
   styleUrls: ['./inscricao-search.component.scss']
 })

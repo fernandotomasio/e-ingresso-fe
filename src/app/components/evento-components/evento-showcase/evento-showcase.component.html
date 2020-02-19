@@ -68,7 +68,7 @@
 
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <ein-reserva-vaga-list></ein-reserva-vaga-list>
+    <app-reserva-vaga-list></app-reserva-vaga-list>
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -76,9 +76,9 @@
 
 <mat-tab-group>
   <mat-tab label="Inscrições" *ngIf="data$ | async as data">
-    <ein-inscricao-list [eventoOid]="data.oid" (action)="onInscricaoAction($event)"></ein-inscricao-list>
+    <app-inscricao-list [eventoOid]="data.oid" (action)="onInscricaoAction($event)"></app-inscricao-list>
   </mat-tab>
   <mat-tab label="Indicações"  *ngIf="data$ | async as data">
-    <ein-indicacao-list [eventoOid]="data.oid"  (action)="onIndicacaoAction($event)"></ein-indicacao-list>
+    <app-indicacao-list [eventoOid]="data.oid"  (action)="onIndicacaoAction($event)"></app-indicacao-list>
   </mat-tab>
 </mat-tab-group>

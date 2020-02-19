@@ -3,7 +3,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'ein-categoria-search',
+  selector: 'app-categoria-search',
   templateUrl: './categoria-search.component.html',
   styleUrls: ['./categoria-search.component.scss']
 })

@@ -8,8 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PessoaFormComponent } from './pessoa-form/pessoa-form.component';
 import {PessoaRemoveComponent, PessoaRemoveDialogComponent} from './pessoa-remove/pessoa-remove.component';
 import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
-import { SharedModule } from '../../shared/shared.module';
 import {DemoMaterialModule} from '../../demo-material-module';
+import { SharedModule } from '../../shared/shared.module';
 
 
 

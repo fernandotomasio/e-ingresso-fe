@@ -10,45 +10,29 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboards/dashboard1',
+        redirectTo: '/store',
         pathMatch: 'full'
       },
       {
-        path: 'dashboards',
-        loadChildren: () => import('./dashboards/dashboards.module').then(m => m.DashboardsModule)
+        path: 'store',
+        loadChildren: () => import('./pages/store-pages/store-pages.module').then(m => m.StorePagesModule)
       },
       {
-        path: 'material',
+        path: 'categorias',
+        loadChildren: () => import('./pages/categoria-admin-pages/categoria-admin-pages.module').then(m => m.CategoriaAdminPagesModule)
+      },
+      {
+        path: 'eventos',
         loadChildren:
-          () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
+          () => import('./pages/evento-admin-pages/evento-admin-pages.module').then(m => m.EventoAdminPagesModule)
       },
       {
-        path: 'apps',
-        loadChildren: () => import('./apps/apps.module').then(m => m.AppsModule)
+        path: 'pessoas',
+        loadChildren: () => import('./pages/pessoa-admin-pages/pessoa-admin-pages.module').then(m => m.PessoaAdminPagesModule)
       },
       {
-        path: 'forms',
-        loadChildren: () => import('./forms/forms.module').then(m => m.FormModule)
-      },
-      {
-        path: 'tables',
-        loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
-      },
-      {
-        path: 'datatables',
-        loadChildren: () => import('./datatables/datatables.module').then(m => m.DataTablesModule)
-      },
-      {
-        path: 'pages',
-        loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
-      },
-      {
-        path: 'widgets',
-        loadChildren: () => import('./widgets/widgets.module').then(m => m.WidgetsModule)
-      },
-      {
-        path: 'charts',
-        loadChildren: () => import('./charts/chartslib.module').then(m => m.ChartslibModule)
+        path: 'workflow',
+        loadChildren: () => import('./pages/workflow-pages/workflow-pages.module').then(m => m.WorkflowPagesModule)
       }
     ]
   },

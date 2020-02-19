@@ -8,8 +8,8 @@ import { PessoaComponentsModule } from '../pessoa-components/pessoa-components.m
 import { IndicacaoRemoveComponent, IndicacaoRemoveDialogComponent } from './indicacao-remove/indicacao-remove.component';
 import { IndicacaoContainerComponent } from './indicacao-container/indicacao-container.component';
 import { IndicacaoDetailComponent } from './indicacao-detail/indicacao-detail.component';
-import { SharedModule } from '../../shared/shared.module';
 import {DemoMaterialModule} from '../../demo-material-module';
+import { SharedModule } from '../../shared/shared.module';
 
 
 

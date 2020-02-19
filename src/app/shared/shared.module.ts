@@ -10,7 +10,6 @@ import {AvatarComponent} from './avatar/avatar.component';
 import {AvatarMiniComponent} from './avatar-mini/avatar-mini.component';
 import {InputImageUploadComponent} from './input-image-upload/input-image-upload.component';
 import {CommonModule} from '@angular/common';
-import {LoggedUserComponent} from './logged-user/logged-user.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import {LoggedUserComponent} from './logged-user/logged-user.component';
     AccordionDirective,
     InputImageUploadComponent,
     AvatarMiniComponent,
-    AvatarComponent,
-    LoggedUserComponent
+    AvatarComponent
   ],
   imports: [
     CommonModule,
@@ -31,8 +29,7 @@ import {LoggedUserComponent} from './logged-user/logged-user.component';
     AccordionDirective,
     InputImageUploadComponent,
     AvatarMiniComponent,
-    AvatarComponent,
-    LoggedUserComponent
+    AvatarComponent
   ],
   providers: [MenuItems]
 })

@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'ein-input-image-upload',
+  selector: 'app-input-image-upload',
   templateUrl: './input-image-upload.component.html',
   styleUrls: ['./input-image-upload.component.scss'],
   providers: [

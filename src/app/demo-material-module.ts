@@ -47,6 +47,9 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { PlatformModule } from '@angular/cdk/platform';
 import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LayoutModule } from '@angular/cdk/layout';
+import { TextFieldModule } from '@angular/cdk/text-field';
 
 /**
  * NgModule that includes all Material modules that are required to serve the demo-app.
@@ -87,13 +90,16 @@ import { PortalModule } from '@angular/cdk/portal';
     MatTooltipModule,
     MatNativeDateModule,
     CdkTableModule,
+    DragDropModule,
     A11yModule,
     BidiModule,
     CdkAccordionModule,
     ObserversModule,
     OverlayModule,
     PlatformModule,
-    PortalModule
+    PortalModule,
+    LayoutModule,
+    TextFieldModule
   ]
 })
 export class DemoMaterialModule {}

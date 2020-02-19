@@ -44,7 +44,7 @@ export function getData(appService: AppService) {
     SpinnerComponent,
     AppBlankComponent,
     AppSidebarComponent,
-	AppBreadcrumbComponent
+    AppBreadcrumbComponent
   ],
   imports: [
     BrowserModule,

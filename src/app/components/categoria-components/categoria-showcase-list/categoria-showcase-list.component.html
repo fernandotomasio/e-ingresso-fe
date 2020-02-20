@@ -6,7 +6,7 @@
     <!-- LISTA DE CARDS -->
 
     <div  fxLayout="row wrap" fxLayoutAlign="start">
-      <mat-card class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">
+      <mat-card  class="categorias-store-card" *ngFor="let item of (dataList$ | async)?.data">
         <img [src]="item.imageUrl" style="height: 200px; width: 300px">
         <mat-card-content>
           <mat-card-title>{{ item.titulo}}</mat-card-title>
@@ -14,11 +14,12 @@
           <p>
             {{ item.descricao }}
           </p>
+
+          <mat-card-actions>
+            <a mat-button  (click)="raiseAction('detail', item.oid)">VEJA MAIS</a>
+          </mat-card-actions>
         </mat-card-content>
 
-        <mat-card-actions>
-          <a mat-button  (click)="raiseAction('detail', item.oid)">VEJA MAIS</a>
-        </mat-card-actions>
       </mat-card>
     </div>
 

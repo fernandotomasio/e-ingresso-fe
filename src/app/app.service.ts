@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { switchMap, tap } from 'rxjs/operators';
 import { zip } from 'rxjs';
 import { PERMISSOES } from './data-mock';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,11 +61,6 @@ export class AppService {
             this.odsas = response[2];
           }),
         ).subscribe(response => {
-          console.log('organization', this.organization);
-          console.log('organizations', this.organizations);
-          console.log('user', this.user);
-          console.log('permissions', this.permissions)
-          console.log('odsas', this.odsas)
           resolve();
         });
       });

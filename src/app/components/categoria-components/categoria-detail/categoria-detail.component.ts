@@ -3,7 +3,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'ein-categoria-detail',
+  selector: 'app-categoria-detail',
   templateUrl: './categoria-detail.component.html',
   styleUrls: ['./categoria-detail.component.scss']
 })

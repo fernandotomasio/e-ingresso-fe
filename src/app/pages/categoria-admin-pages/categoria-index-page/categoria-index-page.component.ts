@@ -3,7 +3,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'ein-categoria-index-page',
+  selector: 'app-categoria-index-page',
   templateUrl: './categoria-index-page.component.html',
   styleUrls: ['./categoria-index-page.component.scss']
 })

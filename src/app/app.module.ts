@@ -1,17 +1,36 @@
+import * as $ from 'jquery';
 import { BrowserModule } from '@angular/platform-browser';
-import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import {APP_INITIALIZER, ErrorHandler, NgModule} from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FullComponent } from './layouts/full/full.component';
+import { AppBlankComponent } from './layouts/blank/blank.component';
+import { AppHeaderComponent } from './layouts/full/header/header.component';
+import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
+import { AppBreadcrumbComponent } from './layouts/full/breadcrumb/breadcrumb.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MaterialModule} from './material-module';
-import {CategoriaComponentsModule} from './components/categoria-components/categoria-components.module';
-import {HttpClientModule} from '@angular/common/http';
-import {EventoComponentsModule} from './components/evento-components/evento-components.module';
-import {PessoaComponentsModule} from './components/pessoa-components/pessoa-components.module';
-import { LayoutModule } from './layout/layout.module';
-import { AppService } from './app.service';
-import { ApplicationErrorHandler } from './app-error-handler';
+import { DemoMaterialModule } from './demo-material-module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+import { SharedModule } from './shared/shared.module';
+import { SpinnerComponent } from './shared/spinner.component';
+import {AppService} from './app.service';
+import {ApplicationErrorHandler} from './app-error-handler';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  wheelSpeed: 2,
+  wheelPropagation: true
+};
 
 export function getData(appService: AppService) {
   return () => appService.load();
@@ -19,20 +38,32 @@ export function getData(appService: AppService) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FullComponent,
+    AppHeaderComponent,
+    SpinnerComponent,
+    AppBlankComponent,
+    AppSidebarComponent,
+    AppBreadcrumbComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    CategoriaComponentsModule,
+    DemoMaterialModule,
+    FormsModule,
+    FlexLayoutModule,
     HttpClientModule,
-    EventoComponentsModule,
-    PessoaComponentsModule,
-    LayoutModule
+    PerfectScrollbarModule,
+    SharedModule,
+    RouterModule.forRoot(AppRoutes),
+    NgMultiSelectDropDownModule.forRoot(),
   ],
+
   providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    },
     { provide: APP_INITIALIZER, useFactory: getData, deps: [AppService], multi: true },
     {
       provide: ErrorHandler,
@@ -41,4 +72,4 @@ export function getData(appService: AppService) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

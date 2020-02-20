@@ -2,7 +2,7 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { environment } from '../../../environments/environment';
 
 @Component({
-  selector: 'ein-avatar-mini',
+  selector: 'app-avatar-mini',
   templateUrl: './avatar-mini.component.html',
   styleUrls: ['./avatar-mini.component.scss']
 })

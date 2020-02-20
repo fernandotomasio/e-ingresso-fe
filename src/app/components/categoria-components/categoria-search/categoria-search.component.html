@@ -1,6 +1,5 @@
-<form [formGroup]="form" class="example-form">
+<form [formGroup]="form" class="example-form" (ngSubmit)="submit()">
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Email" formControlName="q">
+    <input matInput placeholder="Digite um termo para buscar" formControlName="q">
   </mat-form-field>
-  <button mat-button (click)="submit()">Enviar</button>
 </form>

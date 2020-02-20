@@ -4,7 +4,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { IndicacaoService } from '../../../core/indicacao.service';
 
 @Component({
-  selector: 'ein-indicacao-search',
+  selector: 'app-indicacao-search',
   templateUrl: './indicacao-search.component.html',
   styleUrls: ['./indicacao-search.component.scss']
 })

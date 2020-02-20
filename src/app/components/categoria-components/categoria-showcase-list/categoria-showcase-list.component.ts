@@ -5,7 +5,7 @@ import { PageEvent } from '@angular/material';
 import { NotificationService } from '../../../core/notification.service';
 
 @Component({
-  selector: 'ein-categoria-showcase-list',
+  selector: 'app-categoria-showcase-list',
   templateUrl: './categoria-showcase-list.component.html',
   styleUrls: ['./categoria-showcase-list.component.scss']
 })

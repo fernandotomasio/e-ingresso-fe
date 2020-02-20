@@ -3,7 +3,7 @@ import { EventoService } from '../../../core/evento.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'ein-categoria-detail-page',
+  selector: 'app-categoria-detail-page',
   templateUrl: './categoria-detail-page.component.html',
   styleUrls: ['./categoria-detail-page.component.scss']
 })

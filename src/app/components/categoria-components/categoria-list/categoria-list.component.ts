@@ -5,7 +5,7 @@ import { PageEvent } from '@angular/material';
 import { async } from '@angular/core/testing';
 
 @Component({
-  selector: 'ein-categoria-list',
+  selector: 'app-categoria-list',
   templateUrl: './categoria-list.component.html',
   styleUrls: ['./categoria-list.component.scss']
 })

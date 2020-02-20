@@ -2,7 +2,7 @@ import { Component,  OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'ein-categoria-edit-page',
+  selector: 'app-categoria-edit-page',
   templateUrl: './categoria-edit-page.component.html',
   styleUrls: ['./categoria-edit-page.component.scss']
 })

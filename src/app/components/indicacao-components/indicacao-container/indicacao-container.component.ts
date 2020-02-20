@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IndicacaoService } from '../../../core/indicacao.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'ein-indicacao-repository',
+  selector: 'app-indicacao-repository',
   templateUrl: './indicacao-container.component.html',
   styleUrls: ['./indicacao-container.component.scss']
 })
@@ -37,7 +38,6 @@ export class IndicacaoContainerComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      console.log(event.container)
       moveItemInArray(this.dataList, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,
@@ -46,5 +46,7 @@ export class IndicacaoContainerComponent implements OnInit {
         event.currentIndex);
     }
   }
-
+  getUrl(saram: any) {
+    return `${environment.api_endpoint}/api/v1/pessoas/${saram}/thumbnail`;
+  }
 }

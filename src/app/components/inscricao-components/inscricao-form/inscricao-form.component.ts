@@ -4,7 +4,7 @@ import { InscricaoService } from '../../../core/inscricao.service';
 import {AppService} from '../../../app.service';
 
 @Component({
-  selector: 'ein-inscricao-form',
+  selector: 'app-inscricao-form',
   templateUrl: './inscricao-form.component.html',
   styleUrls: ['./inscricao-form.component.scss']
 })

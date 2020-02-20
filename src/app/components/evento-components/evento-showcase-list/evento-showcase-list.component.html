@@ -1,35 +1,38 @@
-<div class="eventos-store-list">
-  <ein-evento-search (changed)="onSearchChange($event)"></ein-evento-search>
-  <mat-card class="eventos-store-card" *ngFor="let item of (dataList$ | async)?.data">
-    <div class="evento-header">
+<div>
+  <div>
+    <app-evento-search (changed)="onSearchChange($event)"></app-evento-search>
+  </div>
 
-      <section class="evento-calendar">
-        <mat-icon>calendar_today</mat-icon>
-        <span>Data do Evento: <b>{{ item.dataInicio | date:'dd MMMM yyyy' }} a {{ item.dataTermino | date:'dd MMMM yyyy' }}</b></span>
-      </section>
 
-      <section class="evento-actions">
-        <a mat-icon-button href="#">
-          <mat-icon>star_border</mat-icon>
-        </a>
-      </section>
+  <!-- LISTA DE CARDS -->
+  <div>
+    <mat-card class="eventos-store-card" *ngFor="let item of (dataList$ | async)?.data">
 
-    </div>
+      <mat-card-content>
+        <mat-card-header>
+          <div mat-card-avatar>
+          <mat-icon>event_note</mat-icon>
+          </div>
+          <mat-card-title>{{ item.categoria.titulo }}</mat-card-title>
+          <mat-card-subtitle>Data do Evento: {{ item.dataInicio | date:'dd MMMM yyyy' }} a {{ item.dataTermino | date:'dd MMMM yyyy' }}</mat-card-subtitle>
+        </mat-card-header>
+        <h3>{{ item.sigla}} - {{ item.nome}}</h3>
+        <p>
+          {{ item.descricao }}
+        </p>
 
-    <mat-card-content>
-      <mat-card-title>{{ item.sigla}} - {{ item.nome}}</mat-card-title>
+        <mat-card-actions>
+          <a mat-raised-button color="primary" (click)="raiseAction('subscribe', item.oid)">INSCREVA-SE</a>
+          <a mat-button (click)="raiseAction('detail', item.oid)">VER DETALHES</a>
+        </mat-card-actions>
 
-      <p>
-        {{ item.descricao }}
-      </p>
-      <span class="label label-primary">{{ item.statusEvento }}</span>
-    </mat-card-content>
+      </mat-card-content>
 
-    <mat-card-actions>
-      <a mat-button (click)="raiseAction('detail', item.oid)">VER DETALHES</a>
-      <a mat-button (click)="raiseAction('subscribe', item.oid)">INSCREVA-SE</a>
-    </mat-card-actions>
-  </mat-card>
+    </mat-card>
+
+  </div>
+
+
 
 </div>
 

@@ -1,18 +1,36 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { InputImageUploadComponent } from './input-image-upload/input-image-upload.component';
-import { AvatarMiniComponent } from './avatar-mini/avatar-mini.component';
-import { AvatarComponent } from './avatar/avatar.component';
 
-
+import { MenuItems } from './menu-items/menu-items';
+import {
+  AccordionAnchorDirective,
+  AccordionLinkDirective,
+  AccordionDirective
+} from './accordion';
+import {AvatarComponent} from './avatar/avatar.component';
+import {AvatarMiniComponent} from './avatar-mini/avatar-mini.component';
+import {InputImageUploadComponent} from './input-image-upload/input-image-upload.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
-  declarations: [InputImageUploadComponent, AvatarMiniComponent, AvatarComponent],
-  exports: [
-    InputImageUploadComponent, AvatarMiniComponent, AvatarComponent
+  declarations: [
+    AccordionAnchorDirective,
+    AccordionLinkDirective,
+    AccordionDirective,
+    InputImageUploadComponent,
+    AvatarMiniComponent,
+    AvatarComponent
   ],
   imports: [
     CommonModule,
   ],
+  exports: [
+    AccordionAnchorDirective,
+    AccordionLinkDirective,
+    AccordionDirective,
+    InputImageUploadComponent,
+    AvatarMiniComponent,
+    AvatarComponent
+  ],
+  providers: [MenuItems]
 })
-export class SharedModule { }
+export class SharedModule {}

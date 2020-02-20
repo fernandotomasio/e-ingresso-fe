@@ -1,5 +1,7 @@
-<form [formGroup]="form" class="example-form">
-  <ein-pessoa-input formControlName="pessoaOid"></ein-pessoa-input>
+<form class="basic-form" [formGroup]="form">
+  <div fxLayout="row wrap">
+
+  <app-pessoa-input formControlName="pessoaOid"></app-pessoa-input>
 
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Email" formControlName="email">
@@ -27,4 +29,6 @@
       </textarea>
   </mat-form-field>
   <button mat-button (click)="submit()">Enviar</button>
+  </div>
 </form>
+

@@ -2,7 +2,7 @@
   <a mat-button [routerLink]="['/store', oid ,'indicacao']">NOVA INDICAÇÃO</a>
   <a mat-button [routerLink]="['/store', oid ,'inscricao']">NOVA INSCRIÇÃO</a>
   <a mat-button [routerLink]="['/workflow', oid]">ANALISAR</a>
-  <ein-evento-showcase [oid]="oid"  (action)="onAction($event)"></ein-evento-showcase>
+  <app-evento-showcase [oid]="oid"  (action)="onAction($event)"></app-evento-showcase>
 
 </div>
 

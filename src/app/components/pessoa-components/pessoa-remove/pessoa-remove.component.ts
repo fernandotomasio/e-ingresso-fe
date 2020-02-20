@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material';
 import {PessoaService} from '../../../core/pessoa.service';
 
 @Component({
-  selector: 'ein-pessoa-remove',
+  selector: 'app-pessoa-remove',
   templateUrl: './pessoa-remove.component.html',
   styleUrls: ['./pessoa-remove.component.scss']
 })
@@ -44,7 +44,7 @@ export class PessoaRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-pessoa-remove-dialog',
+  selector: 'app-pessoa-remove-dialog',
   templateUrl: 'pessoa-remove-dialog.html',
 })
 export class PessoaRemoveDialogComponent {}

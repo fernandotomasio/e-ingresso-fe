@@ -8,7 +8,7 @@ export interface PessoaDialogData {
 }
 
 @Component({
-  selector: 'ein-pessoa-input',
+  selector: 'app-pessoa-input',
   templateUrl: './pessoa-input.component.html',
   styleUrls: ['./pessoa-input.component.scss'],
   providers: [
@@ -62,7 +62,7 @@ export class PessoaInputComponent implements ControlValueAccessor {
 
 
 @Component({
-  selector: 'ein-pessoa-dialog',
+  selector: 'app-pessoa-dialog',
   templateUrl: 'pessoa-dialog.component.html',
 })
 export class PessoaDialogComponent {

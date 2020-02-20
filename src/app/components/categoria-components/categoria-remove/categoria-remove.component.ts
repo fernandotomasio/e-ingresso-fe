@@ -3,7 +3,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'ein-categoria-remove',
+  selector: 'app-categoria-remove',
   templateUrl: './categoria-remove.component.html',
   styleUrls: ['./categoria-remove.component.scss']
 })
@@ -43,7 +43,7 @@ export class CategoriaRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-categoria-remove-dialog',
+  selector: 'app-categoria-remove-dialog',
   templateUrl: 'categoria-remove-dialog.html',
 })
 export class CategoriaRemoveDialogComponent {}

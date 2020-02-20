@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 import { EventoRemoveDialogComponent } from '../../evento-components/evento-remove/evento-remove.component';
 
 @Component({
-  selector: 'ein-inscricao-remove',
+  selector: 'app-inscricao-remove',
   templateUrl: './inscricao-remove.component.html',
   styleUrls: ['./inscricao-remove.component.scss']
 })
@@ -44,7 +44,7 @@ export class InscricaoRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-inscricao-remove-dialog',
+  selector: 'app-inscricao-remove-dialog',
   templateUrl: 'inscricao-remove-dialog.html',
 })
 export class InscricaoRemoveDialogComponent {}

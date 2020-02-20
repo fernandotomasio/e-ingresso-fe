@@ -2,9 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PropostaService } from '../../../core/proposta.service';
 import { AppService } from '../../../app.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'ein-proposta-edit',
+  selector: 'app-proposta-edit',
   templateUrl: './proposta-edit.component.html',
   styleUrls: ['./proposta-edit.component.scss']
 })
@@ -26,7 +27,6 @@ export class PropostaEditComponent implements OnInit {
     this.reset();
     this.service.findAll({ eventoOids: this.eventoOid, organizacaoMilitarOids: this.organizacaoOid } )
       .subscribe(response => {
-        console.log(response)
         if (response.filteredCount === 1) {
           this.data = {
             oid: response.data[0].oid,
@@ -46,7 +46,6 @@ export class PropostaEditComponent implements OnInit {
     } else {
       this.data.itensProposta.splice(event.currentIndex, 0,
         { indicacao: event.previousContainer.data[event.previousIndex] });
-      console.log(this.data.itensProposta);
 
     }
   }
@@ -90,5 +89,9 @@ export class PropostaEditComponent implements OnInit {
 
       ]
     };
+  }
+
+  getUrl(saram: any) {
+    return `${environment.api_endpoint}/api/v1/pessoas/${saram}/thumbnail`;
   }
 }

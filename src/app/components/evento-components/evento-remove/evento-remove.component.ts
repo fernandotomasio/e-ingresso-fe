@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 import { EventoService } from '../../../core/evento.service';
 
 @Component({
-  selector: 'ein-evento-remove',
+  selector: 'app-evento-remove',
   templateUrl: './evento-remove.component.html',
   styleUrls: ['./evento-remove.component.scss']
 })
@@ -45,7 +45,7 @@ export class EventoRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-evento-remove-dialog',
+  selector: 'app-evento-remove-dialog',
   templateUrl: 'evento-remove-dialog.html',
 })
 export class EventoRemoveDialogComponent {}

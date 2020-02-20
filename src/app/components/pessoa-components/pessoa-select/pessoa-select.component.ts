@@ -4,7 +4,7 @@ import { PessoaService } from '../../../core/pessoa.service';
 import { PageEvent } from '@angular/material';
 
 @Component({
-  selector: 'ein-pessoa-select',
+  selector: 'app-pessoa-select',
   templateUrl: './pessoa-select.component.html',
   styleUrls: ['./pessoa-select.component.scss']
 })

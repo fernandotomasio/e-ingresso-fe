@@ -6,7 +6,7 @@ import { CategoriaService } from '../../../core/categoria.service';
 import { AppService } from '../../../app.service';
 
 @Component({
-  selector: 'ein-evento-form',
+  selector: 'app-evento-form',
   templateUrl: './evento-form.component.html',
   styleUrls: ['./evento-form.component.scss']
 })

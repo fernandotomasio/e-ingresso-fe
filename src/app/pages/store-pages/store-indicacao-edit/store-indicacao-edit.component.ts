@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IndicacaoService } from '../../../core/indicacao.service';
 
 @Component({
-  selector: 'ein-store-indicacao-edit',
+  selector: 'app-store-indicacao-edit',
   templateUrl: './store-indicacao-edit.component.html',
   styleUrls: ['./store-indicacao-edit.component.scss']
 })

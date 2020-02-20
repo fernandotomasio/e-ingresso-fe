@@ -3,7 +3,7 @@ import {PessoaService} from '../../../core/pessoa.service';
 import { PageEvent } from '@angular/material';
 
 @Component({
-  selector: 'ein-pessoa-list',
+  selector: 'app-pessoa-list',
   templateUrl: './pessoa-list.component.html',
   styleUrls: ['./pessoa-list.component.scss']
 })

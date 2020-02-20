@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material';
 import { PropostaService } from '../../../core/proposta.service';
 
 @Component({
-  selector: 'ein-proposta-remove',
+  selector: 'app-proposta-remove',
   templateUrl: './proposta-remove.component.html',
   styleUrls: ['./proposta-remove.component.scss']
 })
@@ -41,7 +41,7 @@ export class PropostaRemoveComponent implements OnInit {
 
 }
 @Component({
-  selector: 'ein-proposta-remove-dialog',
+  selector: 'app-proposta-remove-dialog',
   templateUrl: 'proposta-remove-dialog.html',
 })
 export class PropostaRemoveDialogComponent {}

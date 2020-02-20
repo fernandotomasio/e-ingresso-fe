@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../../../app.service';
 import { EventoService } from '../../../core/evento.service';
 @Component({
-  selector: 'ein-workflow-index-page',
+  selector: 'app-workflow-index-page',
   templateUrl: './workflow-index-page.component.html',
   styleUrls: ['./workflow-index-page.component.scss']
 })
@@ -30,7 +30,6 @@ export class WorkflowIndexPageComponent implements OnInit {
     this.odsas = this.appService.getOdsas().data.filter(item => item.oid !== this.organization.oid);
     this.eventoService.find(this.eventoOid).subscribe(response => {
       this.evento = response;
-      console.log(this.evento);
     });
 
   }

@@ -4,7 +4,7 @@ import { PageEvent } from '@angular/material';
 import { AppService } from '../../../app.service';
 
 @Component({
-  selector: 'ein-indicacao-list',
+  selector: 'app-indicacao-list',
   templateUrl: './indicacao-list.component.html',
   styleUrls: ['./indicacao-list.component.scss']
 })

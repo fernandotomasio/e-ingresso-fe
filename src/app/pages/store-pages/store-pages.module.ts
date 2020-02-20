@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { StoreCategoriasPageComponent } from './store-categorias-page/store-categorias-page.component';
 import { RouterModule } from '@angular/router';
 import { StorePagesRoutes } from './store-pages-routing';
-import { MaterialModule } from '../../material-module';
 import { StoreEventosPageComponent } from './store-eventos-page/store-eventos-page.component';
 import { StoreEventosDetailComponent } from './store-eventos-detail/store-eventos-detail.component';
 import { StoreInscricaoEditComponent } from './store-inscricao-edit/store-inscricao-edit.component';
@@ -12,6 +11,7 @@ import { IndicacaoComponentsModule } from '../../components/indicacao-components
 import { EventoComponentsModule } from '../../components/evento-components/evento-components.module';
 import { StoreIndicacaoEditComponent } from './store-indicacao-edit/store-indicacao-edit.component';
 import { CategoriaComponentsModule } from '../../components/categoria-components/categoria-components.module';
+import {DemoMaterialModule} from '../../demo-material-module';
 
 
 
@@ -19,7 +19,7 @@ import { CategoriaComponentsModule } from '../../components/categoria-components
   declarations: [StoreCategoriasPageComponent, StoreEventosPageComponent, StoreEventosDetailComponent,
     StoreInscricaoEditComponent, StoreIndicacaoEditComponent],
   imports: [
-    CommonModule, MaterialModule, InscricaoComponentsModule, EventoComponentsModule, IndicacaoComponentsModule, CategoriaComponentsModule,
+    CommonModule, DemoMaterialModule, InscricaoComponentsModule, EventoComponentsModule, IndicacaoComponentsModule, CategoriaComponentsModule,
     RouterModule.forChild(StorePagesRoutes)
   ]
 })

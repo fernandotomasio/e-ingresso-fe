@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material';
 import { EventoRemoveDialogComponent } from '../../evento-components/evento-remove/evento-remove.component';
 
 @Component({
-  selector: 'ein-indicacao-remove',
+  selector: 'app-indicacao-remove',
   templateUrl: './indicacao-remove.component.html',
   styleUrls: ['./indicacao-remove.component.scss']
 })
@@ -43,7 +43,7 @@ export class IndicacaoRemoveComponent implements OnInit {
 }
 
 @Component({
-  selector: 'ein-indicacao-remove-dialog',
+  selector: 'app-indicacao-remove-dialog',
   templateUrl: 'indicacao-remove-dialog.html',
 })
 export class IndicacaoRemoveDialogComponent {}

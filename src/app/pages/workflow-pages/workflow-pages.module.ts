@@ -3,16 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { WorkflowPagesRoutes } from './workflow-pages-routing';
 import { WorkflowIndexPageComponent } from './workflow-index-page/workflow-index-page.component';
-import { MaterialModule } from '../../material-module';
 import { IndicacaoComponentsModule } from '../../components/indicacao-components/indicacao-components.module';
 import { PropostaComponentsModule } from '../../components/proposta-components/proposta-components.module';
+import {DemoMaterialModule} from '../../demo-material-module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
 @NgModule({
   declarations: [WorkflowIndexPageComponent],
   imports: [
-    CommonModule, MaterialModule, IndicacaoComponentsModule,
+    FlexLayoutModule,
+    CommonModule, DemoMaterialModule, IndicacaoComponentsModule,
     PropostaComponentsModule,
     RouterModule.forChild(WorkflowPagesRoutes)
   ]

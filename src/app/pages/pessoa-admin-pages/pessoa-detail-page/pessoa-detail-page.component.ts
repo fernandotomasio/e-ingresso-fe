@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'ein-pessoa-detail-page',
+  selector: 'app-pessoa-detail-page',
   templateUrl: './pessoa-detail-page.component.html',
   styleUrls: ['./pessoa-detail-page.component.scss']
 })

@@ -38,7 +38,6 @@ export class IndicacaoContainerComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      console.log(event.container)
       moveItemInArray(this.dataList, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(event.previousContainer.data,

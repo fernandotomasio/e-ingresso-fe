@@ -61,11 +61,6 @@ export class AppService {
             this.odsas = response[2];
           }),
         ).subscribe(response => {
-          console.log('organization', this.organization);
-          console.log('organizations', this.organizations);
-          console.log('user', this.user);
-          console.log('permissions', this.permissions)
-          console.log('odsas', this.odsas)
           resolve();
         });
       });

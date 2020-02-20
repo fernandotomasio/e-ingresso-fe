@@ -27,7 +27,6 @@ export class PropostaEditComponent implements OnInit {
     this.reset();
     this.service.findAll({ eventoOids: this.eventoOid, organizacaoMilitarOids: this.organizacaoOid } )
       .subscribe(response => {
-        console.log(response)
         if (response.filteredCount === 1) {
           this.data = {
             oid: response.data[0].oid,
@@ -47,7 +46,6 @@ export class PropostaEditComponent implements OnInit {
     } else {
       this.data.itensProposta.splice(event.currentIndex, 0,
         { indicacao: event.previousContainer.data[event.previousIndex] });
-      console.log(this.data.itensProposta);
 
     }
   }

@@ -1,22 +1,89 @@
-<form class="basic-form" [formGroup]="form" (submit)="onSubmit()">
+<form class="basic-form"  [formGroup]="form" (submit)="onSubmit()">
+
   <div fxLayout="row wrap">
 
-    <mat-form-field>
-      <input matInput type="text"
-             placeholder="Nome"  formControlName="nome">
-    </mat-form-field>
+    <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
+      <h3>Informações Gerais</h3>
+    </div>
 
-    <mat-form-field>
-      <input matInput type="text"
-             placeholder="CPF"  formControlName="cpf">
-    </mat-form-field>
+    <!-- NOME -->
+    <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
+      <mat-form-field [hideRequiredMarker]="form.value.hideRequired" [floatLabel]="form.value.floatLabel">
+        <input matInput type="text" required
+               placeholder="Nome"  formControlName="nome">
+      </mat-form-field>
+    </div>
 
-    <mat-form-field>
-      <input matInput type="text"
-             placeholder="SARAM"  formControlName="saram">
-    </mat-form-field>
+    <!-- NOME DE GUERRA -->
+    <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+      <mat-form-field [hideRequiredMarker]="form.value.hideRequired" [floatLabel]="form.value.floatLabel">
+        <input matInput type="text"
+               placeholder="Nome de Guerra"  formControlName="nomeGuerra">
+      </mat-form-field>
+    </div>
 
-    <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
-    <button mat-raised-button type="submit" color="primary">Gravar</button>
+
+    <!-- ORGANIZAÇÃO -->
+    <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+      <mat-form-field [hideRequiredMarker]="form.value.hideRequired" [floatLabel]="form.value.floatLabel">
+        <mat-select required placeholder="Organização" formControlName="organizacaoOid">
+          <mat-option *ngFor="let item of organizacoes" [value]="item.oid">{{ item.sigla}} - {{ item.nome }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- CPF -->
+    <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+      <mat-form-field [hideRequiredMarker]="form.value.hideRequired" [floatLabel]="form.value.floatLabel">
+        <input matInput type="text" required
+               placeholder="CPF"  formControlName="cpf">
+      </mat-form-field>
+    </div>
+
+    <!-- SARAM -->
+    <div fxFlex.gt-sm="50" fxFlex="100" class="p-10">
+      <mat-form-field [floatLabel]="form.value.floatLabel" [hideRequiredMarker]="form.value.hideRequired">
+        <input matInput type="text"
+               placeholder="SARAM"  formControlName="saram">
+      </mat-form-field>
+    </div>
+
+
+
+    <!-- EMAIL -->
+    <div fxFlex.gt-sm="33.33" fxFlex="100" class="p-10">
+      <mat-form-field [floatLabel]="form.value.floatLabel" [hideRequiredMarker]="form.value.hideRequired">
+        <input matInput type="text"
+               placeholder="Email"  formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <!-- TELEFONE -->
+    <div fxFlex.gt-sm="33.33" fxFlex="100" class="p-10">
+      <mat-form-field [floatLabel]="form.value.floatLabel" [hideRequiredMarker]="form.value.hideRequired">
+        <input matInput type="text"
+               placeholder="Telefone"  formControlName="telefone">
+      </mat-form-field>
+    </div>
+
+
+    <!-- TELEFONE -->
+    <div fxFlex.gt-sm="33.33" fxFlex="100" class="p-10">
+      <mat-form-field [floatLabel]="form.value.floatLabel" [hideRequiredMarker]="form.value.hideRequired">
+        <input matInput type="text"
+               placeholder="Celular"  formControlName="celular">
+      </mat-form-field>
+    </div>
+
+    <div fxFlex.gt-sm="100" fxFlex="100" class="p-10" fxLayoutAlign="end center">
+      &nbsp;
+    </div>
+
+
+    <!-- column -->
+    <div fxFlex.gt-sm="100" fxFlex="100">
+      <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
+      <button mat-raised-button  type="submit" color="primary">Gravar</button>
+    </div>
   </div>
 </form>

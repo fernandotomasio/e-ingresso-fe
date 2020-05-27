@@ -1,3 +1,13 @@
-<app-pessoa-detail [oid]="oid"></app-pessoa-detail>
+<mat-card>
+  <mat-card-content>
+    <mat-card-content>
+      <app-pessoa-detail [oid]="oid"></app-pessoa-detail>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-button [routerLink]="['/pessoas']">FECHAR</a>
+      <a mat-raised-button color="primary" [routerLink]="['/pessoas', oid, 'edit']">EDITAR</a>
 
-<a mat-button [routerLink]="['/pessoas']">List</a>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+

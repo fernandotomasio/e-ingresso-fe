@@ -23,5 +23,8 @@ export class PessoaEditPageComponent implements OnInit {
   onSave(event: any) {
     this.router.navigate(['/pessoas', (event ? event.oid : this.oid), 'detail']);
   }
+  onCancel() {
+    this.router.navigate(['/pessoas']);
+  }
 
 }

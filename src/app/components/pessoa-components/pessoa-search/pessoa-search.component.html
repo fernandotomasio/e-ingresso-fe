@@ -1,6 +1,15 @@
-<form [formGroup]="form" class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Email" formControlName="q">
-  </mat-form-field>
-  <button mat-button (click)="submit()">Enviar</button>
-</form>
+
+<div style="margin: 0px 15px 0px 15px;">
+  <form [formGroup]="form" class="example-form" (ngSubmit)="submit()">
+    <div fxLayout="row wrap" class="align-items-center course-filters">
+
+      <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
+        <mat-form-field class="example-chip-list" [hideRequiredMarker]="form.value.hideRequired"
+                        [floatLabel]="form.value.floatLabel">
+          <input matInput placeholder="Pesquisar" formControlName="q" autocomplete="off">
+        </mat-form-field>
+      </div>
+
+    </div>
+  </form>
+</div>

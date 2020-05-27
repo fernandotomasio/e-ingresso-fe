@@ -1,2 +1,14 @@
-<app-pessoa-form [oid]="oid" (saved)="onSave($event)"></app-pessoa-form>
+<div fxLayout="row wrap">
+  <div fxFlex.gt-sm="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+
+        <app-pessoa-form [oid]="oid"
+                         (saved)="onSave($event)"
+                         (canceled)="onCancel()"></app-pessoa-form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
 

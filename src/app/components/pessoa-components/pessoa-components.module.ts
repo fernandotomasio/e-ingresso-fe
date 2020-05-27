@@ -10,6 +10,7 @@ import {PessoaRemoveComponent, PessoaRemoveDialogComponent} from './pessoa-remov
 import { PessoaDetailComponent } from './pessoa-detail/pessoa-detail.component';
 import {DemoMaterialModule} from '../../demo-material-module';
 import { SharedModule } from '../../shared/shared.module';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
@@ -17,7 +18,7 @@ import { SharedModule } from '../../shared/shared.module';
   declarations: [PessoaListComponent, PessoaSearchComponent, PessoaSelectComponent, PessoaInputComponent,
     PessoaDialogComponent, PessoaFormComponent, PessoaRemoveComponent, PessoaDetailComponent, PessoaRemoveDialogComponent],
   imports: [
-    CommonModule, ReactiveFormsModule, DemoMaterialModule, SharedModule
+    CommonModule, ReactiveFormsModule, DemoMaterialModule, SharedModule, FlexLayoutModule
   ],
   exports: [PessoaListComponent, PessoaSelectComponent, PessoaInputComponent,
     PessoaFormComponent, PessoaDetailComponent],

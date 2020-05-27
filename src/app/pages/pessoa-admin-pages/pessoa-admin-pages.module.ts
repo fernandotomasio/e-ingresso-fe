@@ -6,13 +6,15 @@ import { PessoaIndexPageComponent } from './pessoa-index-page/pessoa-index-page.
 import {RouterModule} from '@angular/router';
 import {PessoaAdminPagesRoutes} from './pessoa-admin-pages-routing';
 import {PessoaComponentsModule} from '../../components/pessoa-components/pessoa-components.module';
+import {DemoMaterialModule} from "../../demo-material-module";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 
 @NgModule({
   declarations: [PessoaDetailPageComponent, PessoaEditPageComponent, PessoaIndexPageComponent],
   imports: [
-    CommonModule, PessoaComponentsModule,
+    CommonModule, PessoaComponentsModule, DemoMaterialModule, FlexLayoutModule,
     RouterModule.forChild(PessoaAdminPagesRoutes)
 
   ]

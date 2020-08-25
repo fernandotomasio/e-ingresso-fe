@@ -1,12 +1,11 @@
-
 <div style="margin: 0px 15px 0px 15px;">
   <form [formGroup]="form" class="example-form" (ngSubmit)="submit()">
     <div fxLayout="row wrap" class="align-items-center course-filters">
 
       <div fxFlex.gt-sm="100" fxFlex="100" class="p-10">
-        <mat-form-field class="example-chip-list" [hideRequiredMarker]="form.value.hideRequired"
+        <mat-form-field appearance="outline" class="example-chip-list" [hideRequiredMarker]="form.value.hideRequired"
                         [floatLabel]="form.value.floatLabel">
-          <input matInput placeholder="Pesquisar" formControlName="q" autocomplete="off">
+          <input matInput placeholder="Digite um termo para buscar" formControlName="q" autocomplete="on">
         </mat-form-field>
       </div>
 

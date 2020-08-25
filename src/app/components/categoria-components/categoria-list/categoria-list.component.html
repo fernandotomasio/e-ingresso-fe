@@ -1,50 +1,69 @@
-<h1>{{ titulo }}</h1>
 <app-categoria-search (changed)="onSearchChange($event)"></app-categoria-search>
-<div>
 
-</div>
-<table mat-table [dataSource]="dataList" class="mat-elevation-z8">
+<mat-card>
+  <mat-card-content class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+      <div class="responsive-table">
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let item"> {{item.oid}} </td>
-  </ng-container>
+        <table mat-table [dataSource]="dataList" >
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="oid">
-    <th mat-header-cell *matHeaderCellDef> OID </th>
-    <td mat-cell *matCellDef="let item"> {{item.oid}} </td>
-  </ng-container>
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="titulo">
-    <th mat-header-cell *matHeaderCellDef> Título </th>
-    <td mat-cell *matCellDef="let item"> {{item.titulo}} </td>
-  </ng-container>
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No.</th>
+            <td mat-cell *matCellDef="let item"> {{item.oid}} </td>
+          </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="descricao">
-    <th mat-header-cell *matHeaderCellDef> Descrição </th>
-    <td mat-cell *matCellDef="let item"> {{item.descricao}} </td>
-  </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="oid">
+            <th mat-header-cell *matHeaderCellDef> OID</th>
+            <td mat-cell *matCellDef="let item"> {{item.oid}} </td>
+          </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="controls">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let item">
-      <a mat-button  (click)="raiseAction('detail', item.oid)">DETALHAR</a>
-      <a mat-button  (click)="raiseAction('edit', item.oid)">EDITAR</a>
-      <app-categoria-remove [oid]="item.oid" (deleted)="refresh()">REMOVER</app-categoria-remove>
-    </td>
-  </ng-container>
+          <!-- Weight Column -->
+          <ng-container matColumnDef="titulo">
+            <th mat-header-cell *matHeaderCellDef> Título</th>
+            <td mat-cell *matCellDef="let item"> {{item.titulo}} </td>
+          </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef> Descrição</th>
+            <td mat-cell *matCellDef="let item"> {{item.descricao}} </td>
+          </ng-container>
 
-<mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
-               [pageSizeOptions]="paginateOptions" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="controls">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let item">
+              <a mat-button (click)="raiseAction('detail', item.oid)">
+                <i class="material-icons">
+                  list
+                </i>
+              </a>
+              <a mat-button (click)="raiseAction('edit', item.oid)">
+                <i class="material-icons">
+                  edit
+                </i>
+              </a>
+              <app-categoria-remove [oid]="item.oid" (deleted)="refresh()">
+                <i class="material-icons">
+                  delete
+                </i>
+              </app-categoria-remove>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [length]="filteredCount" [pageSize]="dataSearch.size"
+                       [pageSizeOptions]="paginateOptions" showFirstLastButtons
+                       (page)="onPageChange($event)"></mat-paginator>
+
+      </div>
+  </mat-card-content>
+</mat-card>

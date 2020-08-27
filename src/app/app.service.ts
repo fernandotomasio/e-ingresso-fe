@@ -48,10 +48,10 @@ export class AppService {
         headers.append('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8');
         this.http.get(`${environment.api_endpoint}/swagger-ui.html`,
           { headers, responseType: 'text' }).pipe(
-          tap(response => this.cpf = '04274554724'),
+          tap(response => this.cpf = '47940593889'),
           switchMap(response => this.loadResourceUser(this.cpf)),
           tap(response => {
-            this.user = response[0]
+            this.user = response[0];
             this.permissions = PERMISSOES;
           }),
           switchMap(response => this.loadResourcesOrg(this.user.organizacaoOid)),

@@ -35,13 +35,13 @@ const MENUITEMS = [
     state: 'categorias',
     name: 'Categorias',
     type: 'link',
-    icon: 'category'
+    icon: 'view_list'
   },
   {
     state: 'eventos',
     name: 'Eventos',
     type: 'link',
-    icon: 'calendar_today'
+    icon: 'event_note'
   },
   {
     state: 'pessoas',

@@ -1,22 +1,23 @@
-<form class="basic-form" [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
-  <div fxLayout="row wrap">
-    <app-input-image-upload formControlName="imageUrl"></app-input-image-upload>
+<mat-card  class="mat-card">
+  <mat-card-content class="mat-card-content">
+    <form class="basic-form" [formGroup]="form" (submit)="onSubmit()" enctype="multipart/form-data">
+        <div fxFlex.gt-sm="20" fxFlex="100" class="m-r-15">
+          <app-input-image-upload formControlName="imageUrl"></app-input-image-upload>
+        </div>
+        <div fxFlex.gt-sm="70" fxFlex="100" >
+          <mat-form-field>
+            <input matInput type="text"
+                   placeholder="Título do evento" formControlName="titulo">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="text"
+                   placeholder="Descrição do evento" formControlName="descricao">
+          </mat-form-field>
+        </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+<button mat-raised-button (click)="onCancel()" [routerLink]="['/categorias', oid ,'detail']">Cancelar</button>
+<button mat-raised-button type="submit" color="primary">Gravar</button>
 
-    <mat-form-field  class="basic-full-width">
-      <input matInput type="text"
-             placeholder="Título"  formControlName="titulo">
-    </mat-form-field>
-
-    <mat-form-field  class="basic-full-width">
-      <input matInput type="text"
-             placeholder="Descrição"  formControlName="descricao">
-    </mat-form-field>
-
-    <a mat-button id="link-close" (click)="onCancel()">Cancelar</a>
-    <button mat-raised-button type="submit" color="primary">Gravar</button>
-  </div>
-
-
-
-</form>
 

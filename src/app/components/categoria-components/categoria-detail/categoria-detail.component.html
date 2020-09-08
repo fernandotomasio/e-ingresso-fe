@@ -1,13 +1,21 @@
-<img [src]="(data$| async)?.imageUrl" alt="" style="width: 300px; height: 200px">
-<p>
-  <b>OID: </b>
-  {{ (data$| async)?.oid }}
-</p>
-<p>
-  <b>TÍTULO: </b>
-  {{ (data$| async)?.titulo }}
-</p>
-<p>
-  <b>DESCRIÇÃO: </b>
-  {{ (data$| async)?.descricao  }}
-</p>
+<mat-card>
+  <mat-card-content>
+    <div fxFlex.gt-sm="20" fxFlex="100" class="m-r-15">
+      <img [src]="(data$| async)?.imageUrl" alt="" style="width: 300px; height: 200px">
+    </div>
+    <div fxFlex.gt-sm="80" fxFlex="100">
+      <p>
+        <b>CÓDIGO: </b>
+        {{ (data$| async)?.oid }}
+      </p>
+      <p>
+        <b>TÍTULO: </b>
+        {{ (data$| async)?.titulo }}
+      </p>
+      <p>
+        <b>DESCRIÇÃO: </b>
+        {{ (data$| async)?.descricao  }}
+      </p>
+    </div>
+  </mat-card-content>
+</mat-card>

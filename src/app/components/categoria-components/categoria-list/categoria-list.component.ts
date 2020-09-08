@@ -49,15 +49,15 @@ export class CategoriaListComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    this.dataSearch.size = event.pageSize
-    this.dataSearch.page = event.pageIndex
+    this.dataSearch.size = event.pageSize;
+    this.dataSearch.page = event.pageIndex;
     this.refresh();
   }
 
 
   onSearchChange(event) {
-    this.dataSearch = Object.assign(this.dataSearch, { page: '0'})
-    this.dataSearch = Object.assign(this.dataSearch, event)
+    this.dataSearch = Object.assign(this.dataSearch, { page: '0'});
+    this.dataSearch = Object.assign(this.dataSearch, event);
     this.refresh();
   }
 }

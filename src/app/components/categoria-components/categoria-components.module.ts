@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 import {DemoMaterialModule} from '../../demo-material-module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -24,13 +25,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CategoriaSearchComponent,
     CategoriaSearchComponent
   ],
-  imports: [
-    CommonModule,
-    DemoMaterialModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        DemoMaterialModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        SharedModule,
+        RouterModule
+    ],
   entryComponents: [
     CategoriaRemoveDialogComponent
   ]

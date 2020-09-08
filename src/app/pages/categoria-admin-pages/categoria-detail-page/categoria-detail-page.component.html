@@ -1,3 +1,9 @@
 <app-categoria-detail [oid]="oid"></app-categoria-detail>
 
-<a mat-button [routerLink]="['/categorias']">List</a>
+<button mat-raised-button color="primary" [routerLink]="['/categorias']">
+  <i class="material-icons">
+    reply
+  </i>
+  <span>Voltar</span>
+</button>
+<button mat-raised-button color="primary" [routerLink]="['/categorias/',oid,'edit']">Editar</button>

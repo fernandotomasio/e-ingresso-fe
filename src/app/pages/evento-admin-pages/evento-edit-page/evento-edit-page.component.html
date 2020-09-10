@@ -1,2 +1,10 @@
-<app-evento-form [oid]="oid"  (saved)="onSave($event)"></app-evento-form>
-<a mat-button [routerLink]="['/eventos', oid ,'detail']">detail evento</a>
+<div fxLayout="row wrap">
+  <div fxFlex.gt-sm="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <app-evento-form [oid]="oid"  (handleAction)="onAction($event)"></app-evento-form>
+        <a mat-button [routerLink]="['/eventos', oid ,'detail']">detail evento</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
-import { EventoService } from '../../../core/evento.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CategoriaService } from '../../../core/categoria.service';
-import { AppService } from '../../../app.service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Observable} from 'rxjs';
+import {EventoService} from '../../../core/evento.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {CategoriaService} from '../../../core/categoria.service';
+import {AppService} from '../../../app.service';
 
 @Component({
   selector: 'app-evento-form',
@@ -16,6 +16,7 @@ export class EventoFormComponent implements OnInit {
   form: FormGroup;
   @Output() saved = new EventEmitter<any>();
   @Output() canceled = new EventEmitter();
+  @Output() handleAction = new EventEmitter();
 
 
   categorias: any;
@@ -30,7 +31,8 @@ export class EventoFormComponent implements OnInit {
   constructor(private service: EventoService,
               private categoriaService: CategoriaService,
               private appService: AppService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.data$ = this.service.find(this.oid);
@@ -72,26 +74,20 @@ export class EventoFormComponent implements OnInit {
       this.service.find(this.oid)
         .subscribe(data => {
             this.form.patchValue({
+              oid: data.oid,
               categoriaOid: data.categoria.oid,
-              organizacaoGestoraOid: data.organizacaoGestora.oid,
               ...data
             });
-        }
+          }
         );
     }
-
-  }
-
-  onCancel() {
-    this.canceled.emit('canceled');
   }
 
   onSubmit() {
     if (this.form.valid) {
       this.service.save(this.form.value).subscribe(response => {
-        this.saved.emit(response);
+        this.handleAction.emit({oid: (response ? response.oid : this.form.value.oid), action: 'save'});
       });
     }
   }
-
 }

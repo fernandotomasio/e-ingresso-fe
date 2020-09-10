@@ -1,2 +1,10 @@
-<app-evento-detail  [oid]="oid"></app-evento-detail>
-<a mat-button [routerLink]="['/eventos']">List</a>
+<app-evento-detail [oid]="oid"></app-evento-detail>
+
+<button class="m-l-15" mat-raised-button color="primary" [routerLink]="['/eventos']">
+  <i class="material-icons">
+    reply
+  </i>
+  <span>Voltar</span>
+</button>
+
+<button class="m-l-10" mat-raised-button color="primary" [routerLink]="['/eventos',oid,'edit']">Editar</button>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-evento-edit-page',
@@ -9,9 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EventoEditPageComponent implements OnInit {
 
   oid: number;
+  acceptedRedirects: any = {
+    cancel: () => this.router.navigate(['/eventos']),
+    save: (oid) => this.router.navigate(['/eventos', oid, 'detail'])
+  };
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -19,9 +24,9 @@ export class EventoEditPageComponent implements OnInit {
     });
   }
 
-  onSave(event: any) {
-    this.router.navigate(['/eventos', (event ? event.oid : this.oid), 'detail']);
+  onAction(event: any) {
+    const { oid, action } = event;
+    const handleRedirect = this.acceptedRedirects[action];
+    handleRedirect(oid);
   }
-
-
 }

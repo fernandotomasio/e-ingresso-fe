@@ -1,8 +1,52 @@
-<p>
-  <b>OID: </b>
-  {{ (data$| async)?.oid }}
-</p>
-<p>
-  <b>NOME: </b>
-  {{ (data$| async)?.nome }}
-</p>
+<mat-card>
+  <mat-card-content>
+    <p>
+      <b>OID: </b>
+      {{ (data$| async)?.oid }}
+    </p>
+    <p>
+      <b>NOME: </b>
+      {{ (data$| async)?.nome }}
+    </p>
+    <p>
+      <b>OM Gestora </b>
+      {{ (data$| async)?.organizacaoGestora?.sigla }}
+    </p>
+    <p>
+      <b>SIGLA: </b>
+      {{ (data$| async)?.sigla }}
+    </p>
+    <p>
+      <b>DESCRIÇÃO: </b>
+      {{ (data$| async)?.descricao }}
+    </p>
+    <p>
+      <b>STATUS DO EVENTO: </b>
+      {{ (data$| async)?.statusEvento }}
+    </p>
+    <p>
+      <b>DATA DE INÍCIO: </b>
+      {{ (data$| async)?.dataInicio | date:'dd/MM/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE TÉRMINO: </b>
+      {{ (data$| async)?.dataTermino | date:'dd/MM/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE INÍCIO DAS INDICAÇÕES: </b>
+      {{ (data$| async)?.dataInicioIndicacao | date:'dd/MM/yyyy' }}
+    </p>
+    <p>
+      <b>DATA DE TÉRMINO DAS INDICAÇÕES: </b>
+      {{ (data$| async)?.dataTerminoIndicacao | date:'dd/MM/yyyy' }}
+    </p>
+    <p>
+      <b>TICKET:</b>
+      {{ (data$| async)?.ticket }}
+    </p>
+    <p>
+      <b>OBSERVAÇÕES: </b>
+      {{ (data$| async)?.observacoes }}
+
+  </mat-card-content>
+</mat-card>

@@ -62,7 +62,7 @@ export class EventoFormComponent implements OnInit {
 
       dataTerminoIndicacao: this.fb.control(''),
 
-      ticket: this.fb.control('', Validators.required),
+      ticket: this.fb.control(''),
 
       observacoes: this.fb.control(''),
 

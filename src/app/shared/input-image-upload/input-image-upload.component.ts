@@ -19,7 +19,7 @@ export class InputImageUploadComponent implements OnInit,  ControlValueAccessor 
 
   value: any;
 
-  noImageUrl = 'assets/images/no-image.png';
+  noImageUrl = 'assets/images/no-image-with-text.jpg';
   destinationImage: any;
   sourceImage: any;
 
